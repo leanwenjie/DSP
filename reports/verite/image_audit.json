@@ -1,0 +1,44 @@
+{
+  "archive_bytes": 65287817,
+  "archive_sha256": "e9e3c7237d19ce42e288408461b4d480717bf818b1488c28052d32d60cbc05e5",
+  "zip_crc": "passed",
+  "parts": [
+    {
+      "name": "images.zip.001",
+      "bytes": 26214400,
+      "sha256": "a8bcff8ae6b6c25dc38bd3ec979a4b9e5a4b72bd97c2ae34b5023cfda702b740"
+    },
+    {
+      "name": "images.zip.002",
+      "bytes": 26214400,
+      "sha256": "b55a699046a935fe663cee34114573548363a840ab4cdc97cac65cec1b9709e5"
+    },
+    {
+      "name": "images.zip.003",
+      "bytes": 12859017,
+      "sha256": "4c0a33f83f41e56def6e801ee75eec570d1115a0d38544e63d48e42504dc7f0f"
+    }
+  ],
+  "annotations_sha256": "7f5661860f2e34624c1721710ed37fac5e1e78a4307400530dd587cb0d15a040",
+  "annotation_rows": 1001,
+  "label_counts": {
+    "true": 338,
+    "miscaptioned": 338,
+    "out-of-context": 325
+  },
+  "referenced_images": 663,
+  "valid_referenced_images": 663,
+  "missing_images": [],
+  "invalid_images": [],
+  "usable_pairs": 1001,
+  "usable_label_counts": {
+    "true": 338,
+    "miscaptioned": 338,
+    "out-of-context": 325
+  },
+  "unavailable_rows": [],
+  "unreferenced_archive_files": [
+    "images/false_179.jpeg"
+  ],
+  "note": "Data integrity/coverage audit only. No model inference, tuning, or test scoring performed. Counts follow the downloaded annotation file; do not assume the paper benchmark is identical."
+}

@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+data/
+artifacts/
+outputs/
+*.pt
+*.pth
+*.pkl
+exports/*
+!exports/DSP-app-Windows.zip

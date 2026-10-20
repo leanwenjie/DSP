@@ -1,0 +1,43 @@
+{
+  "vg_relation": {
+    "source": "https://drive.google.com/uc?export=download&id=1kX2iCHEv0CADL8dSO1nMdW-V0NqIAiP3",
+    "sha256": "409465875a8dc4217313865cd75b7e246652ee73b8e98ec5310a72b03ea90b85",
+    "records": 23937,
+    "distinct_images": 5316,
+    "fields": [
+      "image_id",
+      "true_caption",
+      "false_caption",
+      "relation_info",
+      "primary_object_id",
+      "primary_object_name",
+      "bbox_x",
+      "bbox_y",
+      "bbox_w",
+      "bbox_h",
+      "relation_name",
+      "image_path"
+    ],
+    "note": "Annotation/schema audit only. No scoring or model selection on this evaluation benchmark."
+  },
+  "vg_attribution": {
+    "source": "https://drive.google.com/uc?export=download&id=13tWvOrNOLHxl3Rm9cR3geAdHx2qR3-Tw",
+    "sha256": "21b4a064656a8a57fddb85515a92c564e6b0a5b4d728e1c6b7d20e6040bcf186",
+    "records": 28748,
+    "distinct_images": 4517,
+    "fields": [
+      "image_id",
+      "obj1_name",
+      "obj2_name",
+      "bbox_x",
+      "bbox_y",
+      "bbox_w",
+      "bbox_h",
+      "true_caption",
+      "false_caption",
+      "attributes",
+      "image_path"
+    ],
+    "note": "Annotation/schema audit only. No scoring or model selection on this evaluation benchmark."
+  }
+}

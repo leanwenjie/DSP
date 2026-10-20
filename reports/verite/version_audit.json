@@ -1,0 +1,35 @@
+{
+  "original_2023": {
+    "url": "https://raw.githubusercontent.com/stevejpapad/image-text-verification/fee01f0d2e4d2a4fb918a0ab0e1dd2c48ed7067e/VERITE/VERITE.csv",
+    "sha256": "7f5661860f2e34624c1721710ed37fac5e1e78a4307400530dd587cb0d15a040",
+    "rows": 1001,
+    "counts": {
+      "true": 338,
+      "miscaptioned": 338,
+      "out-of-context": 325
+    },
+    "identical_pair_set_to_local": true
+  },
+  "red_dot": {
+    "url": "https://raw.githubusercontent.com/stevejpapad/relevant-evidence-detection/main/data/VERITE/VERITE.csv",
+    "sha256": "7f5661860f2e34624c1721710ed37fac5e1e78a4307400530dd587cb0d15a040",
+    "rows": 1001,
+    "counts": {
+      "true": 338,
+      "miscaptioned": 338,
+      "out-of-context": 325
+    },
+    "identical_pair_set_to_local": true
+  },
+  "red_dot_evidence": {
+    "url": "https://raw.githubusercontent.com/stevejpapad/relevant-evidence-detection/main/data/VERITE/VERITE_with_evidence.csv",
+    "sha256": "470df1b62a41add1fe1cdc516e1732d4bff0776bef5c872ee3271e2913c560da",
+    "rows": 1001,
+    "counts": {
+      "true": 338,
+      "miscaptioned": 338,
+      "out-of-context": 325
+    },
+    "identical_pair_set_to_local": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "annotation_url": "https://raw.githubusercontent.com/stevejpapad/image-text-verification/master/VERITE/VERITE.csv",
+  "sha256": "7f5661860f2e34624c1721710ed37fac5e1e78a4307400530dd587cb0d15a040",
+  "rows": 1001,
+  "labels": {
+    "true": 338,
+    "miscaptioned": 338,
+    "out-of-context": 325
+  },
+  "duplicate_image_caption_label_rows": 0,
+  "distinct_image_paths": 663,
+  "image_archive_bytes": 65287817,
+  "image_archive_revision": "10a7687e78af5d74fd9981b6a70f7a18e4e543b2",
+  "archive_access": "401 GatedRepo; approved user token required",
+  "note": "Metadata audit only. No predictions generated. Current CSV differs from documented 1000-example count; reconcile before evaluation."
+}

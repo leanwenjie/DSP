@@ -1,0 +1,7 @@
+-r requirements-models.txt
+torch==2.7.1
+torchvision==0.22.1
+clip @ git+https://github.com/openai/CLIP.git@d05afc436d78f1c48dc0dbf8e5980a9d471f35f6
+ftfy==6.3.1
+regex==2026.9.29
+tqdm==4.70.1

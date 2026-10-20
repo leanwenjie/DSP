@@ -1,0 +1,38 @@
+{
+  "train/image": {
+    "available": 473663,
+    "required": 59876,
+    "missing": 0,
+    "invalid_vectors": 0
+  },
+  "train/text": {
+    "available": 385850,
+    "required": 35536,
+    "missing": 0,
+    "invalid_vectors": 0
+  },
+  "val/image": {
+    "available": 50000,
+    "required": 5943,
+    "missing": 0,
+    "invalid_vectors": 0
+  },
+  "val/text": {
+    "available": 40864,
+    "required": 3512,
+    "missing": 0,
+    "invalid_vectors": 0
+  },
+  "test/image": {
+    "available": 50000,
+    "required": 6147,
+    "missing": 0,
+    "invalid_vectors": 0
+  },
+  "test/text": {
+    "available": 40915,
+    "required": 3632,
+    "missing": 0,
+    "invalid_vectors": 0
+  }
+}

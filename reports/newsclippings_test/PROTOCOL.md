@@ -1,0 +1,7 @@
+# Frozen NewsCLIPpings test evaluation
+
+Evaluate the released merged_balanced test split (7,264 pairs) with existing frozen CLIP similarity, selected interaction logistic regression, and MLP seeds 42/43/44. Seed 42 remains predesignated. Retain every validation-selected threshold and training-fitted scaler. Do not fit, calibrate, select seeds, or optimise thresholds using test results. The earlier VERITE results do not alter these models.
+
+Use the SHA256-verified official ViT-B/32 embeddings and the same float32 L2 normalisation and feature computation as training. Record hashes before classifier scoring. Report accuracy, macro-F1, per-class metrics, confusion matrices, ROC-AUC and average precision. Report 2,000-draw 95% percentile bootstrap intervals using connected groups of shared VisualNews IDs (image or caption); this retains both original/misleading pairs and links involving reused images. Report group count and largest group, since large dependencies can limit interval usefulness. Resample the same groups across models to report paired macro-F1 differences from similarity. These intervals cannot account for unidentified duplicate content.
+
+Report every seed without selecting the best. Keep raw predictions and model artifacts local and ignored by Git. Check that frozen hashes remain unchanged. This is a held-out benchmark evaluation, not evidence of arbitrary-upload factual verification. After scoring, this split is evaluated and cannot be described as untouched for further development.

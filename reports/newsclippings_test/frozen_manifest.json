@@ -1,0 +1,32 @@
+{
+  "sha256": {
+    "artifacts/logistic/best_model.npz": "d3307a11dcee44a1449ede7ac2c97432949afabb11e5fe172a53235298da65cc",
+    "artifacts/mlp/model_seed42.npz": "e48bf0052fcbe32e53a633005859c3c9cef2287a3055349df996ff7b43182c9e",
+    "artifacts/mlp/model_seed43.npz": "647c4ea50132bb720c1d45e3dc3615e53ea42d50cf8af014131aece0339db5db",
+    "artifacts/mlp/model_seed44.npz": "abab86e90c3416a504174672cd9c53eaa62b2370f74b05a58ce0c37d27d6f1da",
+    "reports/baseline/metrics.json": "56b32e513699bcc977bdbfa9b26b46a8dcd41b3d9b2f3bf8c6358471a41eb3f2",
+    "reports/newsclippings_test/PROTOCOL.md": "41818222e45aa7f94280fcc533be8f1567fa6625f94ca72826ca813dff8c796e",
+    "data/newsclippings/test.json": "616e06af39fd8afa88d1920e455e4d6ca69e013c9b2fa4dadda593fb0e813aea",
+    "scripts/evaluate_newsclippings_test.py": "0a1d6e79672f114732c2d91b6530fdc5feb4dfb27a3631642c0755644cc54dcb",
+    "data/newsclippings/embeddings/clip_image_embeddings/clip_image_embeddings_test.pkl": "408aa7ad2f7319a18b51412985d65535d1945f4155742aa4889536cb90514570",
+    "data/newsclippings/embeddings/clip_text_embeddings/clip_text_embeddings_test.pkl": "7e4c96f98952b57d3d2ebd83476db3f1bb5202ac54dedcdb94e0a04defcfa438"
+  },
+  "thresholds": {
+    "Similarity": {
+      "cosine_less_than": 0.3007060646524869
+    },
+    "Logistic regression": {
+      "negative_score_less_than": 0.02133670461321636
+    },
+    "MLP seed 42": {
+      "negative_score_less_than": -0.49219134449958796
+    },
+    "MLP seed 43": {
+      "negative_score_less_than": -0.47492614388465876
+    },
+    "MLP seed 44": {
+      "negative_score_less_than": -0.4817038178443908
+    }
+  },
+  "normalisation": "float32 L2; same as training"
+}

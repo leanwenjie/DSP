@@ -1,0 +1,3 @@
+# Preserve valid CRLF line endings in generated CSVs and upstream license text.
+*.csv whitespace=cr-at-eol
+scripts/THIRD_PARTY_LICENSE_5PILS.txt whitespace=cr-at-eol

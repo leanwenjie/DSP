@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-20",
+  "previous_readme_sha256": "885dcd33536f04aae6313e9231452d1a03e13e6ae95d60ab31ec7bb66f57ed8a",
+  "history": "docs/archive/PROJECT_HISTORY.md",
+  "removed": [
+    {
+      "path": "data/verite/VERITE_clip_image_embeddings_ViTB32.npy",
+      "bytes": 2050176,
+      "sha256": "8afb3db9161c97bc2fd1fe35424f3ca803276f68bb989968038a48c35e4ea0a2",
+      "reason": "Byte-identical duplicate; verification script reads canonical red_dot_reference copy",
+      "retained": "data/verite/red_dot_reference/VERITE_clip_image_embeddings_ViTB32.npy"
+    },
+    {
+      "path": "data/verite/VERITE_clip_text_embeddings_ViTB32.npy",
+      "bytes": 2050176,
+      "sha256": "f283fea9804a1a8e45908b47f75196b3021a0be58361b62e64c220259a968fb1",
+      "reason": "Byte-identical duplicate; verification script reads canonical red_dot_reference copy",
+      "retained": "data/verite/red_dot_reference/VERITE_clip_text_embeddings_ViTB32.npy"
+    },
+    {
+      "path": "scripts/__pycache__",
+      "bytes": 129386,
+      "reason": "Regenerable Python bytecode or Matplotlib font cache"
+    },
+    {
+      "path": "tests/__pycache__",
+      "bytes": 32048,
+      "reason": "Regenerable Python bytecode or Matplotlib font cache"
+    },
+    {
+      "path": "artifacts/matplotlib",
+      "bytes": 173564,
+      "reason": "Regenerable Python bytecode or Matplotlib font cache"
+    }
+  ],
+  "bytes_removed": 4435350,
+  "retained": "All unique data, frozen model artifacts, evaluation reports, provenance manifests, tests and source code retained."
+}

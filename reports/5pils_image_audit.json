@@ -1,0 +1,42 @@
+{
+  "total_unique_images": 624,
+  "outcomes": {
+    "downloaded_raw": 620,
+    "failed": 4
+  },
+  "processing_status": "RAW ONLY: upstream cropping/standard processing must be applied before benchmark evaluation.",
+  "failures": [
+    {
+      "image_id": 557,
+      "url": "https://211check.org/wp-content/uploads/2023/05/image-7.png",
+      "path": "data/5pils_ooc/raw_images/557.img",
+      "benchmark_image_path": "processed_img/fact-check-photo-of-a-driver-on-a-muddy-road-not-from-south-sudan.png",
+      "status": "failed",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "image_id": 598,
+      "url": "https://lh3.googleusercontent.com/bV-J6YgESq426f2D1ro3P2kwtieb090XwT6Dt80a5sSfRlE2eHz6Pi6J6cxpvl0aeHwvQD389pXlPnGkVMsQvRltEkxo9ORxthmGAKGYwkq_gt6eGlG4VE-aW3LJbNT92CIb7ZFZoP5TAF0diiIgOdA",
+      "path": "data/5pils_ooc/raw_images/598.img",
+      "benchmark_image_path": "processed_img/fact-check-whatsapp-picture-with-nigerian-airtel-number-cant-kill.png",
+      "status": "failed",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "image_id": 619,
+      "url": "https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/399971804_653925466918705_4603640267294466499_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=UuHJIOrCDZoQ7kNvgFUmYKd&_nc_zt=23&_nc_ht=scontent-bru2-1.xx&_nc_gid=AfugRyCvHOTWwqfW2zEfmkw&oh=00_AYCT1gWLmBEsTN1cLJkV3xozPf2dTfKMe5Xo9Uaff57wKQ&oe=6769B797",
+      "path": "data/5pils_ooc/raw_images/619.img",
+      "benchmark_image_path": "processed_img/fact-check-this-photo-of-muddy-shoes-wasnt-originally-taken-in-juba.png",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "image_id": 620,
+      "url": "https://lh7-us.googleusercontent.com/PSDrAUiJ_3K00_892dR8qNAOhKzDpVCezVsAS2sSbBdxuBTE3OpBJnr8JhsYgqoIdz0xuwJxko9TC1r1HA20kjiqKGC-ERYblL9UdZnrA6dLn8Q_BKyUhBlAU_F8Y73uQhEovX8dUEXCIulWLyoiG0E",
+      "path": "data/5pils_ooc/raw_images/620.img",
+      "benchmark_image_path": "processed_img/fact-check-this-picture-isnt-of-an-olympic-stadium-design-to-be-built-in-south-sudan.png",
+      "status": "failed",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}

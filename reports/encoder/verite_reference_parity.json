@@ -1,0 +1,67 @@
+{
+  "reference_revision": "4dd44fdc8ff8bfec2acb265019b24de77cc3a09a",
+  "reference_base_url": "https://raw.githubusercontent.com/stevejpapad/relevant-evidence-detection/4dd44fdc8ff8bfec2acb265019b24de77cc3a09a/data/VERITE/",
+  "sample_size": 32,
+  "sample_seed": 42,
+  "row_indices": [
+    83,
+    442,
+    722,
+    748,
+    920,
+    495,
+    445,
+    92,
+    86,
+    705,
+    837,
+    421,
+    227,
+    506,
+    957,
+    515,
+    367,
+    197,
+    829,
+    544,
+    640,
+    820,
+    450,
+    427,
+    774,
+    681,
+    181,
+    776,
+    751,
+    400,
+    126,
+    636
+  ],
+  "classifier_predictions_generated": false,
+  "reference_files_sha256": {
+    "VERITE.csv": "7f5661860f2e34624c1721710ed37fac5e1e78a4307400530dd587cb0d15a040",
+    "VERITE_clip_image_embeddings_ViTB32.npy": "8afb3db9161c97bc2fd1fe35424f3ca803276f68bb989968038a48c35e4ea0a2",
+    "VERITE_clip_text_embeddings_ViTB32.npy": "f283fea9804a1a8e45908b47f75196b3021a0be58361b62e64c220259a968fb1"
+  },
+  "red_dot_resize_source": "https://github.com/stevejpapad/relevant-evidence-detection/blob/4dd44fdc8ff8bfec2acb265019b24de77cc3a09a/src/extract_features.py",
+  "preprocess": "Compose(\n    Resize(size=224, interpolation=bicubic, max_size=None, antialias=True)\n    CenterCrop(size=(224, 224))\n    <function _convert_image_to_rgb at 0x7f5b11e77560>\n    ToTensor()\n    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))\n)",
+  "note": "Feature agreement only. Does not independently establish image parity with NewsCLIPpings training embeddings.",
+  "image": {
+    "cosine_min": 0.967999781012542,
+    "cosine_mean": 0.993318176948738,
+    "cosine_median": 0.9957771574572489,
+    "all_above_0_999": false
+  },
+  "image_red_dot_resize400": {
+    "cosine_min": 0.9756490582119142,
+    "cosine_mean": 0.9967846868489053,
+    "cosine_median": 0.99911709237581,
+    "all_above_0_999": false
+  },
+  "text": {
+    "cosine_min": 0.9999997642075842,
+    "cosine_mean": 0.9999999188474737,
+    "cosine_median": 0.9999999150308865,
+    "all_above_0_999": true
+  }
+}

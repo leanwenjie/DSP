@@ -1,0 +1,274 @@
+{
+  "split": "test",
+  "count": 7264,
+  "class_counts": [
+    3632,
+    3632
+  ],
+  "models": {
+    "Similarity": {
+      "accuracy": 0.6530837004405287,
+      "macro_f1": 0.6518637717085911,
+      "classification_report": {
+        "original": {
+          "precision": 0.6736414740787008,
+          "recall": 0.5938876651982379,
+          "f1-score": 0.6312554872695347,
+          "support": 3632.0
+        },
+        "out_of_context": {
+          "precision": 0.6368783850320039,
+          "recall": 0.7122797356828194,
+          "f1-score": 0.6724720561476475,
+          "support": 3632.0
+        },
+        "accuracy": 0.6530837004405287,
+        "macro avg": {
+          "precision": 0.6552599295553523,
+          "recall": 0.6530837004405287,
+          "f1-score": 0.6518637717085911,
+          "support": 7264.0
+        },
+        "weighted avg": {
+          "precision": 0.6552599295553523,
+          "recall": 0.6530837004405287,
+          "f1-score": 0.6518637717085911,
+          "support": 7264.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          2157,
+          1475
+        ],
+        [
+          1045,
+          2587
+        ]
+      ],
+      "roc_auc": 0.7196800739632052,
+      "average_precision": 0.7142628581496493,
+      "macro_f1_95_interval": [
+        0.6425425398559071,
+        0.6611928775986993
+      ],
+      "paired_delta_vs_similarity_95_interval": [
+        0.0,
+        0.0
+      ]
+    },
+    "Logistic regression": {
+      "accuracy": 0.6965859030837004,
+      "macro_f1": 0.6963416905555537,
+      "classification_report": {
+        "original": {
+          "precision": 0.6860343929129755,
+          "recall": 0.7249449339207048,
+          "f1-score": 0.7049531459170013,
+          "support": 3632.0
+        },
+        "out_of_context": {
+          "precision": 0.7084063047285464,
+          "recall": 0.6682268722466961,
+          "f1-score": 0.687730235194106,
+          "support": 3632.0
+        },
+        "accuracy": 0.6965859030837004,
+        "macro avg": {
+          "precision": 0.6972203488207609,
+          "recall": 0.6965859030837005,
+          "f1-score": 0.6963416905555537,
+          "support": 7264.0
+        },
+        "weighted avg": {
+          "precision": 0.6972203488207609,
+          "recall": 0.6965859030837004,
+          "f1-score": 0.6963416905555536,
+          "support": 7264.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          2633,
+          999
+        ],
+        [
+          1205,
+          2427
+        ]
+      ],
+      "roc_auc": 0.7638768187573988,
+      "average_precision": 0.7698138097294334,
+      "macro_f1_95_interval": [
+        0.6860566946487946,
+        0.706071180846541
+      ],
+      "paired_delta_vs_similarity_95_interval": [
+        0.03469399477844769,
+        0.05410102893637613
+      ]
+    },
+    "MLP seed 42": {
+      "accuracy": 0.688601321585903,
+      "macro_f1": 0.6885984652160594,
+      "classification_report": {
+        "original": {
+          "precision": 0.6874657909140668,
+          "recall": 0.6916299559471366,
+          "f1-score": 0.6895415866044469,
+          "support": 3632.0
+        },
+        "out_of_context": {
+          "precision": 0.6897506925207756,
+          "recall": 0.6855726872246696,
+          "f1-score": 0.6876553438276719,
+          "support": 3632.0
+        },
+        "accuracy": 0.688601321585903,
+        "macro avg": {
+          "precision": 0.6886082417174212,
+          "recall": 0.688601321585903,
+          "f1-score": 0.6885984652160594,
+          "support": 7264.0
+        },
+        "weighted avg": {
+          "precision": 0.6886082417174212,
+          "recall": 0.688601321585903,
+          "f1-score": 0.6885984652160594,
+          "support": 7264.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          2512,
+          1120
+        ],
+        [
+          1142,
+          2490
+        ]
+      ],
+      "roc_auc": 0.7712329616575133,
+      "average_precision": 0.7862794557028744,
+      "macro_f1_95_interval": [
+        0.6785089344480738,
+        0.698664015939769
+      ],
+      "paired_delta_vs_similarity_95_interval": [
+        0.026464794787418453,
+        0.04677778804980517
+      ]
+    },
+    "MLP seed 43": {
+      "accuracy": 0.6875,
+      "macro_f1": 0.6874895525223557,
+      "classification_report": {
+        "original": {
+          "precision": 0.6896935933147632,
+          "recall": 0.6817180616740088,
+          "f1-score": 0.685682636388812,
+          "support": 3632.0
+        },
+        "out_of_context": {
+          "precision": 0.6853565596080566,
+          "recall": 0.6932819383259912,
+          "f1-score": 0.6892964686558992,
+          "support": 3632.0
+        },
+        "accuracy": 0.6875,
+        "macro avg": {
+          "precision": 0.6875250764614099,
+          "recall": 0.6875,
+          "f1-score": 0.6874895525223557,
+          "support": 7264.0
+        },
+        "weighted avg": {
+          "precision": 0.6875250764614099,
+          "recall": 0.6875,
+          "f1-score": 0.6874895525223557,
+          "support": 7264.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          2476,
+          1156
+        ],
+        [
+          1114,
+          2518
+        ]
+      ],
+      "roc_auc": 0.7648436590318073,
+      "average_precision": 0.7781331821526462,
+      "macro_f1_95_interval": [
+        0.6772225171273225,
+        0.6972142906207495
+      ],
+      "paired_delta_vs_similarity_95_interval": [
+        0.02505659255979303,
+        0.04564323335770023
+      ]
+    },
+    "MLP seed 44": {
+      "accuracy": 0.6852973568281938,
+      "macro_f1": 0.6852967604118411,
+      "classification_report": {
+        "original": {
+          "precision": 0.6847885777045579,
+          "recall": 0.6866740088105727,
+          "f1-score": 0.6857299972504811,
+          "support": 3632.0
+        },
+        "out_of_context": {
+          "precision": 0.6858089453340696,
+          "recall": 0.683920704845815,
+          "f1-score": 0.684863523573201,
+          "support": 3632.0
+        },
+        "accuracy": 0.6852973568281938,
+        "macro avg": {
+          "precision": 0.6852987615193138,
+          "recall": 0.6852973568281939,
+          "f1-score": 0.6852967604118411,
+          "support": 7264.0
+        },
+        "weighted avg": {
+          "precision": 0.6852987615193137,
+          "recall": 0.6852973568281938,
+          "f1-score": 0.6852967604118412,
+          "support": 7264.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          2494,
+          1138
+        ],
+        [
+          1148,
+          2484
+        ]
+      ],
+      "roc_auc": 0.7664042183770305,
+      "average_precision": 0.7807913932790148,
+      "macro_f1_95_interval": [
+        0.6748127664273972,
+        0.6952578704756441
+      ],
+      "paired_delta_vs_similarity_95_interval": [
+        0.02295831929925344,
+        0.043688804770301334
+      ]
+    }
+  },
+  "bootstrap": {
+    "unit": "connected shared VisualNews IDs",
+    "groups": 2994,
+    "largest_group": 8,
+    "repetitions": 2000,
+    "seed": 42
+  },
+  "predictions_sha256": "e364fd71b3954786f81a01faf58dc8a5f0da62636a274b89d31a3c9aafd1ab8d",
+  "seed_policy": "42 predesignated; no test-based selection"
+}

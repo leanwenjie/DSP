@@ -1,0 +1,104 @@
+{
+  "model": "Frozen official CLIP ViT-B/32 cosine similarity",
+  "positive_class": "out_of_context",
+  "prediction_rule": "cosine_similarity < threshold",
+  "threshold": 0.3007060646524869,
+  "selection_split": "val",
+  "selection_metric": "macro-F1",
+  "warning": "Validation performance is optimistically selected; not a final test result.",
+  "test_evaluated": false,
+  "splits": {
+    "train": {
+      "count": 71072,
+      "provenance_sha256": {
+        "image": "3aac46a94b64cc79a8217093c0e60a9cee23a04e8454310d6455d9e7c41c0f33",
+        "text": "b214e318254bf03d5978f9ff83ff48f5b908e3c9b9f21fcbceffe22ae81b6a0b",
+        "annotations": "2e03619dacf516dbe8a53a7bf3767bcd3a4d65d25877b8c32d53eac7e8e30a7d"
+      },
+      "classification_report": {
+        "original": {
+          "precision": 0.6638476456935746,
+          "recall": 0.5875731652408824,
+          "f1-score": 0.6233859290331248,
+          "support": 35536.0
+        },
+        "out_of_context": {
+          "precision": 0.6300764784573059,
+          "recall": 0.702470733903647,
+          "f1-score": 0.6643070986627636,
+          "support": 35536.0
+        },
+        "accuracy": 0.6450219495722648,
+        "macro avg": {
+          "precision": 0.6469620620754402,
+          "recall": 0.6450219495722647,
+          "f1-score": 0.6438465138479442,
+          "support": 71072.0
+        },
+        "weighted avg": {
+          "precision": 0.6469620620754403,
+          "recall": 0.6450219495722648,
+          "f1-score": 0.6438465138479443,
+          "support": 71072.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          20880,
+          14656
+        ],
+        [
+          10573,
+          24963
+        ]
+      ],
+      "roc_auc": 0.7127898831842036
+    },
+    "val": {
+      "count": 7024,
+      "provenance_sha256": {
+        "image": "70b9c3efeac45d7a5a8a73a9025cdb62abe40fb6d6809b9fc842bc299f4fd669",
+        "text": "3b345116bfc30d5d7bc3179e4d17b41853e7de0776f6a1f80b1a9be0a023124f",
+        "annotations": "892ab89f9dd94302caadfeea3cde43c24499e22f34a3220158b0589ff767fe52"
+      },
+      "classification_report": {
+        "original": {
+          "precision": 0.666023166023166,
+          "recall": 0.5894077448747153,
+          "f1-score": 0.6253776435045317,
+          "support": 3512.0
+        },
+        "out_of_context": {
+          "precision": 0.6317671092951992,
+          "recall": 0.7044419134396356,
+          "f1-score": 0.6661281637049004,
+          "support": 3512.0
+        },
+        "accuracy": 0.6469248291571754,
+        "macro avg": {
+          "precision": 0.6488951376591826,
+          "recall": 0.6469248291571754,
+          "f1-score": 0.645752903604716,
+          "support": 7024.0
+        },
+        "weighted avg": {
+          "precision": 0.6488951376591826,
+          "recall": 0.6469248291571754,
+          "f1-score": 0.645752903604716,
+          "support": 7024.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          2070,
+          1442
+        ],
+        [
+          1038,
+          2474
+        ]
+      ],
+      "roc_auc": 0.7128053637123096
+    }
+  }
+}

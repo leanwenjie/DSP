@@ -1,0 +1,46 @@
+{
+  "newsclippings": {
+    "train": {
+      "records": 71072,
+      "labels": {
+        "False": 35536,
+        "True": 35536
+      },
+      "duplicate_pairs": 0
+    },
+    "val": {
+      "records": 7024,
+      "labels": {
+        "False": 3512,
+        "True": 3512
+      },
+      "duplicate_pairs": 0
+    },
+    "test": {
+      "records": 7264,
+      "labels": {
+        "False": 3632,
+        "True": 3632
+      },
+      "duplicate_pairs": 0
+    }
+  },
+  "cross_split_visualnews_id_overlap": {
+    "train/val": 0,
+    "train/test": 0,
+    "val/test": 0
+  },
+  "5pils_ooc": {
+    "records": 1248,
+    "distinct_images": 624,
+    "records_per_image": {
+      "2": 624
+    },
+    "labels": {
+      "pristine": 624,
+      "falsified": 624
+    },
+    "label_verification": "Caption equality cross-checked against released true_veracity by image_id/caption_id."
+  },
+  "note": "Annotation audit only; no test predictions or model selection performed."
+}

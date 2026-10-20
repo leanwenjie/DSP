@@ -1,0 +1,39 @@
+{
+  "outcomes": {
+    "processed": 618,
+    "unavailable": 6
+  },
+  "unavailable": [
+    {
+      "image_id": 35,
+      "status": "unavailable",
+      "error": "Published crop outside current image dimensions: [0, 260, 498, 496], (496, 505)"
+    },
+    {
+      "image_id": 304,
+      "status": "unavailable",
+      "error": "Published crop outside current image dimensions: [0, 150, 650, 790], (640, 790)"
+    },
+    {
+      "image_id": 557,
+      "status": "unavailable",
+      "error": "Raw image unavailable"
+    },
+    {
+      "image_id": 598,
+      "status": "unavailable",
+      "error": "Raw image unavailable"
+    },
+    {
+      "image_id": 619,
+      "status": "unavailable",
+      "error": "Raw image unavailable"
+    },
+    {
+      "image_id": 620,
+      "status": "unavailable",
+      "error": "Raw image unavailable"
+    }
+  ],
+  "note": "Published crops/standard algorithm applied to current web images; visual spot-check remains required. Exclude both captions for any unavailable image."
+}
