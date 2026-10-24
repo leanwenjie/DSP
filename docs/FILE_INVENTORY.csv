@@ -2,7 +2,7 @@ path,bytes,role,purpose
 .gitattributes,166,source/documentation,Git whitespace rules for valid existing CRLF CSV/license files.
 .gitignore,122,source/documentation,"Keeps environments, data, trained artifacts, secrets and caches out of source commits."
 .streamlit/config.toml,114,source/documentation,"App theme, 10 MB upload limit, headless mode and disabled usage telemetry."
-README.md,5733,source/documentation,"Current project entry point, state, results, run command and remaining work."
+README.md,6367,source/documentation,"Current project entry point, state, results, run command and remaining work."
 app.py,3696,source/documentation,Streamlit upload/caption interface; calls scripts/app_inference.py.
 artifacts/baseline/train_predictions.csv,2763319,local artifact,Similarity baseline training scores/predictions.
 artifacts/baseline/val_predictions.csv,273257,local artifact,Similarity validation scores/predictions; used by error/threshold analysis.
@@ -15,6 +15,18 @@ artifacts/mlp/model_seed44.npz,297322,local artifact,"Frozen MLP seed 44 weights
 artifacts/mlp/validation_seed42.npz,225794,local artifact,Seed 42 validation scores/predictions for analysis and inference parity.
 artifacts/mlp/validation_seed43.npz,225794,local artifact,Seed 43 validation scores/predictions for analysis and inference parity.
 artifacts/mlp/validation_seed44.npz,225794,local artifact,Seed 44 validation scores/predictions for analysis and inference parity.
+artifacts/mlp_concat/model_seed42.npz,149702,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/model_seed43.npz,149702,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/model_seed44.npz,149702,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/test_mlp_42.npz,175098,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/test_mlp_43.npz,175098,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/test_mlp_44.npz,175098,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/test_mlp_concat_42.npz,175098,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/test_mlp_concat_43.npz,175098,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/test_mlp_concat_44.npz,175098,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/validation_seed42.npz,225794,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/validation_seed43.npz,225794,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+artifacts/mlp_concat/validation_seed44.npz,225794,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
 artifacts/newsclippings_test/predictions.csv,2341602,local artifact,Frozen NewsCLIPpings test predictions for all models.
 artifacts/verite/features.npz,2564852,local artifact,Cached normalised VERITE image/text features; used by app parity checks.
 artifacts/verite/predictions.csv,273527,local artifact,Frozen VERITE row-level predictions for all evaluated models; used by app parity checks.
@@ -1962,13 +1974,14 @@ data/verite/red_dot_reference/VERITE_clip_image_embeddings_ViTB32.npy,2050176,lo
 data/verite/red_dot_reference/VERITE_clip_text_embeddings_ViTB32.npy,2050176,local data,"Dataset annotation, metadata, reference, audit or recovery file; see FILE_GUIDE Dataset file families."
 data/verite/red_evidence.csv,1374246,local data,"Dataset annotation, metadata, reference, audit or recovery file; see FILE_GUIDE Dataset file families."
 docs/CLEANUP_LOG.json,1546,source/documentation,"Exact cleanup paths, duplicate hashes, retained canonical copies and bytes removed."
-docs/FILE_GUIDE.md,19224,source/documentation,"This explanation of source, results, generated files and cleanup decisions."
+docs/FILE_GUIDE.md,20169,source/documentation,"This explanation of source, results, generated files and cleanup decisions."
+docs/REFERENCE_ALIGNMENT.md,4568,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
 docs/archive/PROJECT_HISTORY.md,13301,source/documentation,"Preserved earlier project overview; contains historical plans/status, not current instructions."
-exports/DSP-app-Windows.zip,344449,app distribution,Small Windows app bundle; includes frozen small classifiers but no research datasets or cloud environment.
+exports/DSP-app-Windows.zip,336982,app distribution,Small Windows app bundle; includes frozen small classifiers but no research datasets or cloud environment.
 reports/5pils_image_audit.json,2151,source/documentation,Optional 5Pils download successes and failures.
 reports/5pils_processing_audit.json,1005,source/documentation,Optional 5Pils crop validity and usable-image coverage.
 reports/DATA_STATUS.md,3741,source/documentation,Data preparation instructions and source/access limitations.
-reports/app/README.md,5011,source/documentation,Human-readable report for app functionality/latency; earlier studies describe their state at the time.
+reports/app/README.md,5463,source/documentation,Human-readable report for app functionality/latency; earlier studies describe their state at the time.
 reports/app/smoke_and_latency.json,4488,source/documentation,"App parity checks, CPU timing and illustrative correct/incorrect cases."
 reports/baseline/README.md,2620,source/documentation,Human-readable report for similarity development study; earlier studies describe their state at the time.
 reports/baseline/metrics.json,3098,source/documentation,"Machine-readable metrics/settings for similarity development study; reproducibility evidence, not clutter."
@@ -1986,12 +1999,18 @@ reports/mlp/README.md,2828,source/documentation,Human-readable report for three-
 reports/mlp/learning_curves.png,105237,source/documentation,Presentation/report figure for three-seed MLP development study.
 reports/mlp/metrics.json,11264,source/documentation,"Machine-readable metrics/settings for three-seed MLP development study; reproducibility evidence, not clutter."
 reports/mlp/runs.json,9194,source/documentation,"Per-seed epoch histories, selected checkpoints and training outcomes."
+reports/mlp_concat/README.md,1864,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+reports/mlp_concat/learning_curves.png,101821,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+reports/mlp_concat/metrics.json,17274,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+reports/mlp_concat/runs.json,14727,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+reports/mlp_concat/test_frozen_manifest.json,2153,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+reports/mlp_concat/test_metrics.json,7481,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
 reports/newsclippings_test/PROTOCOL.md,1519,source/documentation,Evaluation rules recorded before scoring; keep unchanged.
 reports/newsclippings_test/README.md,2005,source/documentation,Human-readable report for frozen NewsCLIPpings test evaluation; earlier studies describe their state at the time.
 reports/newsclippings_test/comparison.png,51032,source/documentation,Presentation/report figure for frozen NewsCLIPpings test evaluation.
 reports/newsclippings_test/frozen_manifest.json,1682,source/documentation,Hashes and frozen settings used for reproducibility; keep unchanged. The NewsCLIPpings manifest is also required by the app.
 reports/newsclippings_test/metrics.json,7201,source/documentation,"Machine-readable metrics/settings for frozen NewsCLIPpings test evaluation; reproducibility evidence, not clutter."
-reports/scope_options/README.md,7720,source/documentation,Human-readable report for historical research alternatives (not adopted scope); earlier studies describe their state at the time.
+reports/scope_options/README.md,7777,source/documentation,Human-readable report for historical research alternatives (not adopted scope); earlier studies describe their state at the time.
 reports/scope_options/aro_annotation_audit.json,1222,source/documentation,Historical ARO relation/attribute annotation inspection; no model evaluation.
 reports/similarity_analysis/README.md,4086,source/documentation,Human-readable report for validation errors by similarity group; earlier studies describe their state at the time.
 reports/similarity_analysis/metrics.json,7058,source/documentation,"Machine-readable metrics/settings for validation errors by similarity group; reproducibility evidence, not clutter."
@@ -2015,25 +2034,27 @@ requirements-encoder.txt,189,source/documentation,"Includes model requirements, 
 requirements-models.txt,64,source/documentation,"Includes data requirements, then adds scikit-learn and Matplotlib."
 scripts/THIRD_PARTY_LICENSE_5PILS.txt,11573,source/documentation,Required attribution/license for adapted 5Pils preprocessing; keep with that code.
 scripts/analyse_similarity.py,6843,source/documentation,Investigates validation errors by training-defined similarity groups.
-scripts/app_inference.py,5390,source/documentation,"Runtime: validates uploads/captions, loads CLIP and verifies model hashes, then performs frozen inference."
+scripts/app_inference.py,5051,source/documentation,"Runtime: validates uploads/captions, loads CLIP and verifies model hashes, then performs frozen inference."
 scripts/audit_embeddings.py,1716,source/documentation,"Checks embedding hashes, row coverage, dimension and numerical validity."
 scripts/check_app.py,3535,source/documentation,Integration check: compares app outputs with frozen VERITE predictions and records a small CPU latency sample.
 scripts/collect_5pils_images.py,3220,source/documentation,"Optional 5Pils image downloader, with decoding checks and failure logging."
 scripts/compare_thresholds.py,5795,source/documentation,Explores the validation-only 80%-recall operating point and its false-alarm cost.
+scripts/evaluate_mlp_concat.py,5693,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
 scripts/evaluate_newsclippings_test.py,9222,source/documentation,Frozen official test evaluation with verified embeddings and shared-ID grouped intervals.
-scripts/evaluate_verite.py,9861,source/documentation,"Frozen external evaluation from raw VERITE images/captions, grouped intervals and plots."
+scripts/evaluate_verite.py,9526,source/documentation,"Frozen external evaluation from raw VERITE images/captions, grouped intervals and plots."
+scripts/model_inference.py,1617,source/documentation,Shared feature/scaling and frozen classifier inference without training imports.
 scripts/prepare_data.py,5926,source/documentation,Downloads pinned annotations/embeddings; checks downloads and split structure; writes receipts and audits.
 scripts/prepare_verite_upload.py,4633,source/documentation,"Reassembles split uploads, safely extracts images and audits image coverage."
 scripts/process_5pils_images.py,3888,source/documentation,Optional 5Pils crop/sidebar preprocessing and coverage checks.
 scripts/report_verite.py,4487,source/documentation,Formats the VERITE results report from saved metrics; does not rerun inference.
 scripts/similarity_baseline.py,6921,source/documentation,Computes CLIP similarity and selects a threshold on validation only; shared development loaders.
-scripts/train_logistic.py,6677,source/documentation,Trains six logistic-regression feature/regularisation candidates; also provides features and saved-model inference.
-scripts/train_mlp.py,6507,source/documentation,Trains three fixed MLP seeds with validation stopping; also provides saved MLP forward-pass logic.
+scripts/train_logistic.py,5702,source/documentation,Trains six logistic-regression feature/regularisation candidates; also provides features and saved-model inference.
+scripts/train_mlp.py,6480,source/documentation,Trains three fixed MLP seeds with validation stopping; also provides saved MLP forward-pass logic.
 scripts/verify_clip_encoder.py,4032,source/documentation,Compares fresh CLIP text features with official NewsCLIPpings features and checks image encoding.
 scripts/verify_verite_features.py,4068,source/documentation,Compares fresh image/text features with RED-DOT references; includes its resize diagnostic.
 tests/test_app.py,3469,source/documentation,Upload validation and Streamlit interface/result/error behaviour.
 tests/test_logistic_features.py,2061,source/documentation,Interaction feature construction and saved logistic inference.
-tests/test_mlp_inference.py,1495,source/documentation,"Saved neural forward pass, precision and threshold boundaries."
+tests/test_mlp_inference.py,2478,source/documentation,"Saved neural forward pass, precision and threshold boundaries."
 tests/test_newsclippings_evaluation.py,1074,source/documentation,Transitive shared-ID grouping and grouped bootstrap correctness.
 tests/test_screening_threshold.py,989,source/documentation,"Recall target, minimum flags and tied-score threshold behaviour."
 tests/test_similarity_analysis.py,762,source/documentation,Similarity error-analysis calculations.

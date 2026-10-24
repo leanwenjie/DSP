@@ -1,18 +1,21 @@
 # Multimodal Out-of-Context Misinformation Detection using Vision-Language Models
 
-Bachelor’s research project comparing frozen CLIP ViT-B/32 similarity, logistic regression and a small MLP for misleading image–caption detection. The main reference is [RED-DOT (2025)](https://github.com/stevejpapad/relevant-evidence-detection); our classifiers are adaptations, not reproductions of its full architecture or evidence retrieval. COVE and the VERITE paper are supporting references. The title is fixed; the planned duration is 13 weeks with free tools and a separate 6 GB RTX 4050 laptop.
+Bachelor’s research project comparing frozen CLIP ViT-B/32 similarity, logistic regression and a small MLP for misleading image–caption detection. The main reference is [Shalabi et al. (2023), Image-Text Out-Of-Context Detection Using Synthetic Multimodal Misinformation](https://doi.org/10.1109/APSIPAASC58517.2023.10317336). We share its NewsCLIPpings Merged/Balanced split sizes and CLIP ViT-B/32 backbone, but do not reproduce its generation-assisted pipeline. VERITE provides external evaluation; RED-DOT is optional related work. The title is fixed; the planned duration is 13 weeks with free tools and a separate 6 GB RTX 4050 laptop.
 
 ## Start here
 
+- [Main-reference alignment, objectives and follow-up protocol](docs/REFERENCE_ALIGNMENT.md)
+
 - [Every file explained, storage and cleanup guidance](docs/FILE_GUIDE.md)
 - [App installation, demonstration and limitations](reports/app/README.md)
+- [Follow-up: matched MLP feature comparison](reports/mlp_concat/README.md)
 - [NewsCLIPpings held-out test results](reports/newsclippings_test/README.md)
 - [VERITE external evaluation](reports/verite/evaluation/README.md)
 - [Earlier planning and experiment history](docs/archive/PROJECT_HISTORY.md) — historical, not the current task list
 
 ## Current status
 
-Data preparation, three baseline approaches, feature comparisons, three MLP seeds, validation error analysis, frozen NewsCLIPpings test and VERITE evaluation, and the Streamlit app are complete. Twenty-six automated tests passed at the app milestone. A real-model form submission and local server health checks passed. Small cloud CPU measurements are in the app report; laptop/GPU performance is untested.
+Data preparation, three baseline approaches, feature comparisons, three MLP seeds, validation error analysis, frozen NewsCLIPpings test and VERITE evaluation, and the Streamlit app are complete. Twenty-seven automated tests pass after the inference simplification. A real-model form submission and local server health checks passed. Small cloud CPU measurements are in the app report; laptop/GPU performance is untested.
 
 | Model | NewsCLIPpings test macro-F1 | VERITE true-vs-out-of-context macro-F1 |
 | --- | ---: | ---: |
@@ -59,6 +62,8 @@ data/                   Local datasets and download receipts (Git-ignored)
 artifacts/              Local weights, features and predictions (Git-ignored)
 .venv/                  Installed Python environment (Git-ignored)
 ```
+
+The paper-inspired follow-up compares concatenation against interaction features under the same MLP training settings. Seed 42 test macro-F1 is 60.35% versus 68.86% (+8.51 percentage points); all seeds and limitations are in the linked follow-up report. This is not an exact reproduction of the reference paper.
 
 ## Remaining deliverables
 

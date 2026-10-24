@@ -1,10 +1,12 @@
 import sys
 import unittest
+import tempfile
 from pathlib import Path
 import numpy as np
 from scipy.special import expit
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from train_mlp import saved_probability
+from model_inference import predict_saved
 
 class MLPInferenceTests(unittest.TestCase):
     def test_float32_model_returns_float64_scores_for_thresholds(self):
@@ -27,3 +29,17 @@ class MLPInferenceTests(unittest.TestCase):
         x = rng.normal(size=(7,4))
         np.testing.assert_allclose(saved_probability(x, params),
                                    np.concatenate([saved_probability(row[None,:], params) for row in x]))
+
+    def test_saved_head_preserves_float32_threshold_boundary(self):
+        vectors = [np.zeros((2, 1), dtype=np.float32)] * 2
+        params = dict(w0=np.zeros((5, 1), dtype=np.float32), b0=np.zeros(1, dtype=np.float32),
+                      w1=np.ones((1, 1), dtype=np.float32), b1=np.zeros(1, dtype=np.float32),
+                      mean=np.zeros(5), scale=np.ones(5), feature_mode='interaction')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'model.npz'
+            for threshold, expected in [(-.5, 0), (np.nextafter(-.5, np.inf), 1)]:
+                np.savez(path, **params, threshold=threshold)
+                scores, predictions = predict_saved(vectors, path)
+                self.assertEqual(scores.dtype, np.float64)
+                np.testing.assert_array_equal(scores, [.5, .5])
+                np.testing.assert_array_equal(predictions, [expected, expected])

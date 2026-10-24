@@ -9,8 +9,7 @@ import torch
 import clip
 from PIL import Image, UnidentifiedImageError
 from prepare_data import ROOT, digest
-from train_logistic import predict_saved, features
-from train_mlp import saved_probability
+from model_inference import score_saved
 
 MODELS = ('Logistic regression', 'CLIP similarity', 'MLP seed 42')
 MAX_BYTES = 10 * 1024 * 1024
@@ -50,6 +49,7 @@ def validate_input(content, caption):
 
 class Detector:
     def __init__(self):
+        # ponytail: one CPU encoder is serialized; revisit only for concurrent serving.
         self.lock = threading.Lock()
         self.paths = {
             'Logistic regression': ROOT/'artifacts/logistic/best_model.npz',
@@ -80,17 +80,11 @@ class Detector:
             cosine = float(np.einsum('ij,ij->i', *vectors, dtype=np.float64)[0])
             threshold = float(json.loads(path.read_text())['threshold'])
             return cosine, threshold, cosine < threshold, 'cosine similarity', 'below'
-        if model_name == 'Logistic regression':
-            score, prediction = predict_saved(vectors, path)
-            with np.load(path, allow_pickle=False) as d:
-                threshold = -float(d['threshold'])
-            return float(score[0]), threshold, bool(prediction[0]), 'decision score', 'above'
-        with np.load(path, allow_pickle=False) as d:
-            x = features(vectors, 'interaction').astype(np.float32)
-            x -= d['mean'].astype(x.dtype); x /= d['scale'].astype(x.dtype)
-            score = saved_probability(x, d)
-            threshold = -float(d['threshold'])
-            return float(score[0]), threshold, bool(-score[0] < float(d['threshold'])), 'sigmoid score (uncalibrated)', 'above'
+        with np.load(path, allow_pickle=False) as saved:
+            score = float(score_saved(vectors, saved)[0])
+            threshold = -float(saved['threshold'])
+        score_type = 'decision score' if model_name == 'Logistic regression' else 'sigmoid score (uncalibrated)'
+        return score, threshold, score > threshold, score_type, 'above'
 
     def predict(self, image, caption, model_name):
         started = time.perf_counter()

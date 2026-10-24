@@ -11,8 +11,7 @@ from PIL import Image
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, average_precision_score
 from threadpoolctl import threadpool_limits
 from prepare_data import ROOT, digest
-from train_logistic import features, predict_saved
-from train_mlp import saved_probability
+from model_inference import predict_saved
 
 
 def story_id(path):
@@ -109,11 +108,7 @@ def main():
     with threadpool_limits(limits=2):
         predictions['Logistic regression'] = predict_saved(vectors, paths[1])
         for seed, path in zip((42,43,44), paths[2:5]):
-            with np.load(path, allow_pickle=False) as d:
-                x = features(vectors, 'interaction').astype(np.float32)
-                x -= d['mean'].astype(x.dtype); x /= d['scale'].astype(x.dtype)
-                score = saved_probability(x, d)
-                predictions[f'MLP seed {seed}'] = (score, (-score < float(d['threshold'])).astype(int))
+            predictions[f'MLP seed {seed}'] = predict_saved(vectors, path)
     y = (labels != 'true').astype(int)
     results = {}
     for name, (score, pred) in predictions.items():

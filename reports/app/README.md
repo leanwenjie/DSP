@@ -51,3 +51,5 @@ Twenty-six automated tests passed, including invalid-input cases, animation/size
 There is no evidence retrieval or independent verification of date, location, identity or event. Negative results can miss misinformation. Exact image-feature parity with the original NewsCLIPpings pipeline remains unverified. The app is a local research demonstration; public hosting, authentication, load testing, score calibration, browser usability testing and the user's laptop benchmark have not been completed.
 
 Measured in this cloud CPU run: initialisation 1.84 s; warm median 0.109 s and p95 0.133 s over 12 single-request logistic-regression inputs. These are exploratory measurements, not performance guarantees.
+
+Inference simplification: shared numeric heads now live in `scripts/model_inference.py`. The app no longer imports training scripts; the laptop ZIP omits train_logistic.py, train_mlp.py and similarity_baseline.py. All 32,100 saved learned-model predictions checked across validation and VERITE are unchanged; 27 tests pass. The extracted bundle also passes real-image checks for all three app models. Frozen hashes and input validation remain intact.

@@ -1,6 +1,6 @@
 # Project routes: reference-paper and scope review
 
-Historical feasibility review. The current project retains its original misinformation-detection title and adopts RED-DOT (2025) as the main methodological reference. VERITE images are now available and its evaluation is complete; routes proposing a different title were not adopted. The options and availability notes below record the earlier investigation, not current status. Existing results and reserved test sets are preserved. Author-maintained repositories, citation blocks, dataset loaders and selected implementation files were inspected. This is not a complete independent review of each paper's experiments.
+Historical feasibility review. The project retains its original title. This historical review preceded the adoption of Shalabi et al. (2023) as the main reference; see [current alignment](../../docs/REFERENCE_ALIGNMENT.md). VERITE images are now available and its evaluation is complete; routes proposing a different title were not adopted. The options and availability notes below record the earlier investigation, not current status. Existing results and reserved test sets are preserved. Author-maintained repositories, citation blocks, dataset loaders and selected implementation files were inspected. This is not a complete independent review of each paper's experiments.
 
 ## 1. Keep contextual misinformation detection; add evidence
 

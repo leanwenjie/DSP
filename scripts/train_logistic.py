@@ -11,29 +11,7 @@ from sklearn.preprocessing import StandardScaler
 from threadpoolctl import threadpool_limits
 from similarity_baseline import load_vectors, select_threshold
 from prepare_data import ROOT
-
-
-def features(vectors, mode):
-    image, text = vectors
-    if image.shape != text.shape or image.ndim != 2:
-        raise ValueError('Aligned image/text matrices required')
-    if mode == 'concat':
-        return np.concatenate([image, text], axis=1)
-    if mode == 'interaction':
-        cosine = np.einsum('ij,ij->i', image, text)[:, None]
-        return np.concatenate([image, text, np.abs(image-text), image*text, cosine], axis=1)
-    raise ValueError('Unknown feature mode')
-
-
-def predict_saved(vectors, path):
-    """Apply saved numeric parameters to L2-normalised CLIP vectors."""
-    with np.load(path, allow_pickle=False) as saved:
-        x = features(vectors, str(saved['feature_mode'])).astype(np.float32)
-        # Match sklearn's float32, in-place StandardScaler transform.
-        x -= saved['mean'].astype(x.dtype)
-        x /= saved['scale'].astype(x.dtype)
-        decision = (x @ saved['coef'].T).ravel() + saved['intercept'][0]
-        return decision, (-decision < float(saved['threshold'])).astype(int)
+from model_inference import features, predict_saved
 
 
 def main():

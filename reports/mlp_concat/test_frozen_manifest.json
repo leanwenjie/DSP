@@ -1,0 +1,23 @@
+{
+  "sha256": {
+    "docs/REFERENCE_ALIGNMENT.md": "c7dc97e63135a046dff6171654a00d63c4f438726cec72f856f1038c99ee996e",
+    "scripts/train_mlp.py": "ced2fcca50d460bad87fcbaa5a4df6c21332a7c40f5aa11ca7311a1fd830208a",
+    "scripts/evaluate_mlp_concat.py": "acbdea955d6c26c48a10d1148f6bf6bf58e035e110a9ca27887e9c683737f518",
+    "scripts/model_inference.py": "dbfd43788548c68bbf41e576f069c0123ac5838a1948afc535300308e7faee11",
+    "reports/mlp_concat/metrics.json": "27e3d0ea6daf06e8b91cc58552c1fa36f3237193467e79c22d54396438db9e09",
+    "artifacts/mlp_concat/model_seed42.npz": "5dc403236d011fbe345f2e8e9e97267c50e50aefe7203ca1e4de763b88dfd1af",
+    "artifacts/mlp_concat/model_seed43.npz": "aab3bfbf3a4fff38b80e72460e115e0ec5c9965fef7cb5c108b79153c01d9343",
+    "artifacts/mlp_concat/model_seed44.npz": "e4947820594204ab5ca729c8be6bbad429e52fc6114330634c3cb84f51945f2a",
+    "artifacts/mlp/model_seed42.npz": "e48bf0052fcbe32e53a633005859c3c9cef2287a3055349df996ff7b43182c9e",
+    "artifacts/mlp/model_seed43.npz": "647c4ea50132bb720c1d45e3dc3615e53ea42d50cf8af014131aece0339db5db",
+    "artifacts/mlp/model_seed44.npz": "abab86e90c3416a504174672cd9c53eaa62b2370f74b05a58ce0c37d27d6f1da",
+    "artifacts/logistic/best_model.npz": "d3307a11dcee44a1449ede7ac2c97432949afabb11e5fe172a53235298da65cc",
+    "reports/baseline/metrics.json": "56b32e513699bcc977bdbfa9b26b46a8dcd41b3d9b2f3bf8c6358471a41eb3f2",
+    "reports/newsclippings_test/PROTOCOL.md": "41818222e45aa7f94280fcc533be8f1567fa6625f94ca72826ca813dff8c796e",
+    "data/newsclippings/test.json": "616e06af39fd8afa88d1920e455e4d6ca69e013c9b2fa4dadda593fb0e813aea",
+    "scripts/evaluate_newsclippings_test.py": "0a1d6e79672f114732c2d91b6530fdc5feb4dfb27a3631642c0755644cc54dcb",
+    "data/newsclippings/embeddings/clip_image_embeddings/clip_image_embeddings_test.pkl": "408aa7ad2f7319a18b51412985d65535d1945f4155742aa4889536cb90514570",
+    "data/newsclippings/embeddings/clip_text_embeddings/clip_text_embeddings_test.pkl": "7e4c96f98952b57d3d2ebd83476db3f1bb5202ac54dedcdb94e0a04defcfa438"
+  },
+  "policy": "Follow-up after prior test inspection; validation-selected thresholds; no test tuning"
+}

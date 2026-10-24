@@ -27,6 +27,7 @@ This guide describes the current project. Source filenames and data/model locati
 | --- | --- |
 | `scripts/THIRD_PARTY_LICENSE_5PILS.txt` | Required attribution/license for adapted 5Pils preprocessing; keep with that code. |
 | `scripts/analyse_similarity.py` | Investigates validation errors by training-defined similarity groups. |
+| `scripts/model_inference.py` | Shared feature construction, float32 scaling and saved logistic/MLP inference; no training imports. |
 | `scripts/app_inference.py` | Runtime: validates uploads/captions, loads CLIP and verifies model hashes, then performs frozen inference. |
 | `scripts/audit_embeddings.py` | Checks embedding hashes, row coverage, dimension and numerical validity. |
 | `scripts/check_app.py` | Integration check: compares app outputs with frozen VERITE predictions and records a small CPU latency sample. |
@@ -57,7 +58,7 @@ This guide describes the current project. Source filenames and data/model locati
 | `tests/test_similarity_baseline.py` | Threshold-selection correctness for the similarity baseline. |
 | `tests/test_verite_evaluation.py` | Story grouping and bootstrap calculations. |
 
-Training programs overwrite artifacts when executed as scripts. They also contain reusable inference helpers, so do not delete them simply because training is complete.
+Training programs overwrite artifacts when executed as scripts. Shared numeric inference now lives in model_inference.py; training modules re-export the previous helper names for compatibility. Keep training programs for research reproduction, but the app-only ZIP no longer needs them.
 
 ## Research reports — every file
 
@@ -172,10 +173,19 @@ Thousands of image files have the same role; each individual path is listed in `
 
 ## Minimum app files versus research files
 
-To run the current app, keep app.py, .streamlit/config.toml, the installed environment or all layered requirements, scripts/app_inference.py and its imported helpers (prepare_data.py, train_logistic.py, train_mlp.py, similarity_baseline.py), artifacts/logistic/best_model.npz, artifacts/mlp/model_seed42.npz, reports/baseline/metrics.json, reports/newsclippings_test/frozen_manifest.json and the cached CLIP checkpoint (or access to its official download). The app loads/checks all three heads, even if the default is logistic regression.
+To run the current app, keep app.py, .streamlit/config.toml, the installed environment or all layered requirements, scripts/app_inference.py and its imported helpers (prepare_data.py and model_inference.py), artifacts/logistic/best_model.npz, artifacts/mlp/model_seed42.npz, reports/baseline/metrics.json, reports/newsclippings_test/frozen_manifest.json and the cached CLIP checkpoint (or access to its official download). The app loads/checks all three heads, even if the default is logistic regression.
 
 Benchmark images, NewsCLIPpings embedding pickles, optional ARO/5Pils data and row-level evaluation predictions are not needed for a new app upload. They are needed for specific research/reproduction checks, including check_app.py. Keep the full research workspace separate from any future app-only distribution. A subsequent laptop-transfer step created `exports/DSP-app-Windows.zip`: the app-only package with frozen small classifiers, Windows installers/launchers and required source. It excludes research datasets and the large CLIP checkpoint (downloaded on first inference). Windows scripts remain untested on Windows; extracted code/model inference was checked in the cloud.
 
 ## Hidden and external files
 
 `.git/` is repository metadata, not project code; leave it alone. `.venv/` contains installed third-party packages, not files written for this project. Their internal files are deliberately excluded from the project inventory. `__pycache__/` and Matplotlib cache files are regenerable and may reappear after running Python. The uploaded split archives under `/workspace/attachments/` are outside this repository and were not moved/deleted. Temporary server/install logs under `/tmp/` are also outside the project inventory.
+
+## Main-reference follow-up (2026-10-24)
+
+- `docs/REFERENCE_ALIGNMENT.md`: current main reference, objectives, comparison limits and fixed follow-up protocol.
+- `scripts/train_mlp.py --feature-mode concat`: reuse the three-seed trainer for the separate concatenation study; refuses to overwrite existing concatenation artifacts.
+- `scripts/evaluate_mlp_concat.py`: frozen, matched test comparison and paired grouped bootstrap intervals.
+- `reports/mlp_concat/`: training metrics, learning curves, test metrics, manifest and readable findings.
+- `artifacts/mlp_concat/`: ignored numeric models and validation/test predictions.
+- Report/slides and their generator remain on hold and may reference the earlier research framing.

@@ -1,31 +1,33 @@
 """Three-seed, single-architecture MLP study. No test data access."""
+import argparse
 import json
 import os
 import time
 import numpy as np
-from scipy.special import expit
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 from threadpoolctl import threadpool_limits
 from similarity_baseline import load_vectors, select_threshold
-from train_logistic import features
+from model_inference import features, saved_probability, predict_saved
 from prepare_data import ROOT
 
 
-def saved_probability(x, parameters):
-    hidden = np.maximum(x @ parameters['w0'] + parameters['b0'], 0)
-    return expit(hidden @ parameters['w1'] + parameters['b1']).ravel().astype(np.float64)
-
-
 def main():
-    out, artifacts = ROOT / 'reports/mlp', ROOT / 'artifacts/mlp'
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--feature-mode', choices=('interaction', 'concat'), default='interaction')
+    args = parser.parse_args()
+    mode = args.feature_mode
+    study = 'mlp' if mode == 'interaction' else 'mlp_concat'
+    out, artifacts = ROOT / f'reports/{study}', ROOT / f'artifacts/{study}'
+    if mode == 'concat' and artifacts.exists() and any(artifacts.iterdir()):
+        raise FileExistsError('Preserve existing concatenation study; use its saved results')
     out.mkdir(parents=True, exist_ok=True)
     artifacts.mkdir(parents=True, exist_ok=True)
     data = {s: load_vectors(s) for s in ('train', 'val')}
     scaler = StandardScaler()
-    x_train = scaler.fit_transform(features(data['train'][1], 'interaction'))
-    x_val = scaler.transform(features(data['val'][1], 'interaction'))
+    x_train = scaler.fit_transform(features(data['train'][1], mode))
+    x_val = scaler.transform(features(data['val'][1], mode))
     y_train, y_val = data['train'][2], data['val'][2]
     config = dict(hidden_layer_sizes=(32,), activation='relu', solver='adam', alpha=.001,
                   batch_size=512, learning_rate_init=.0003, shuffle=True, early_stopping=False)
@@ -54,7 +56,7 @@ def main():
                     best_weights = dict(w0=model.coefs_[0].copy(), w1=model.coefs_[1].copy(),
                                         b0=model.intercepts_[0].copy(), b1=model.intercepts_[1].copy())
                     np.savez(artifacts / f'model_seed{seed}.npz', **best_weights,
-                             mean=scaler.mean_, scale=scaler.scale_, threshold=threshold, feature_mode='interaction')
+                             mean=scaler.mean_, scale=scaler.scale_, threshold=threshold, feature_mode=mode)
                     np.savez(artifacts / f'validation_seed{seed}.npz', labels=y_val, probability=probability,
                              predictions=prediction, caption_id=[r['id'] for r in data['val'][0]])
                 else:
@@ -64,12 +66,7 @@ def main():
             best.update(history=history, seconds=time.monotonic()-started, epochs_run=epoch,
                         stop_reason='patience_5' if stale >= 5 else 'max_epochs_30')
             # Validate complete saved numeric inference, including preprocessing.
-            with np.load(artifacts / f'model_seed{seed}.npz', allow_pickle=False) as saved:
-                raw = features(data['val'][1], 'interaction').astype(np.float32)
-                raw -= saved['mean'].astype(raw.dtype)
-                raw /= saved['scale'].astype(raw.dtype)
-                restored = saved_probability(raw, saved)
-                saved_predictions = -restored < float(saved['threshold'])
+            restored, saved_predictions = predict_saved(data['val'][1], artifacts / f'model_seed{seed}.npz')
             with np.load(artifacts / f'validation_seed{seed}.npz', allow_pickle=False) as reference:
                 np.testing.assert_allclose(restored, reference['probability'], rtol=1e-6, atol=1e-7)
                 np.testing.assert_array_equal(saved_predictions, reference['predictions'])
@@ -77,7 +74,7 @@ def main():
             runs.append(best)
             (out / 'runs.json').write_text(json.dumps(runs, indent=2)+'\n')
     scores = [r['validation_macro_f1'] for r in runs]
-    report = dict(config=config, seeds=[42,43,44], max_epochs=30, patience=5,
+    report = dict(feature_mode=mode, config=config, seeds=[42,43,44], max_epochs=30, patience=5,
                   provisional_model_seed=42, seed_policy='42 preselected; report all seeds, do not pick the best seed',
                   scaler_fit_split='train', selection_split='val', test_evaluated=False,
                   provenance_sha256={s:d[3] for s,d in data.items()}, runs=runs,
@@ -93,7 +90,7 @@ def main():
         ax.plot([r['epoch'] for r in run['history']], [r['val_macro_f1'] for r in run['history']], marker='.', label=f"Seed {run['seed']}")
     logistic = json.loads((ROOT / 'reports/logistic/metrics.json').read_text())['selected']['validation_macro_f1']
     ax.axhline(logistic, linestyle='--', color='black', label='Selected logistic regression')
-    ax.set(xlabel='Epoch', ylabel='Validation macro-F1', title='MLP development curves — test datasets reserved')
+    ax.set(xlabel='Epoch', ylabel='Validation macro-F1', title=f'MLP {mode} development curves — validation selection')
     ax.legend()
     fig.savefig(out / 'learning_curves.png', dpi=180)
     plt.close(fig)
