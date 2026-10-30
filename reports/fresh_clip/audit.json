@@ -1,0 +1,69 @@
+{
+  "feature_checks": {
+    "train_image": {
+      "shape": [
+        59876,
+        512
+      ],
+      "norm_min": 0.9999998211860657,
+      "norm_max": 1.0000001192092896,
+      "sha256": "5694e0c0be959959e36ffd1ea8d2ab16f26b01af71800b0055dc0f7ba42e5504"
+    },
+    "train_text": {
+      "shape": [
+        35536,
+        512
+      ],
+      "norm_min": 0.9999998211860657,
+      "norm_max": 1.0000001192092896,
+      "sha256": "b5d5c470a519645a4c91c4bf7d11ff99344bd3586a1d0aea35ca89ca017be2a9"
+    },
+    "val_image": {
+      "shape": [
+        5943,
+        512
+      ],
+      "norm_min": 0.9999998211860657,
+      "norm_max": 1.0000001192092896,
+      "sha256": "08f7f278f8927c1b97f70903d7a4b23bf3d703f47b2b8fec7747131860a12cb4"
+    },
+    "val_text": {
+      "shape": [
+        3512,
+        512
+      ],
+      "norm_min": 0.9999998211860657,
+      "norm_max": 1.0000001192092896,
+      "sha256": "7fdef7b749a52ef599d257b6cc4b41b59e604c72e89b704cc17d41857b463cd7"
+    }
+  },
+  "saved_inference_parity": true,
+  "metric_reconciliation": true,
+  "validation_report": {
+    "0": {
+      "precision": 0.6817429674572532,
+      "recall": 0.7038724373576309,
+      "f1-score": 0.6926309890725694,
+      "support": 3512.0
+    },
+    "1": {
+      "precision": 0.6939376103590347,
+      "recall": 0.6714123006833713,
+      "f1-score": 0.6824891461649782,
+      "support": 3512.0
+    },
+    "accuracy": 0.6876423690205011,
+    "macro avg": {
+      "precision": 0.6878402889081439,
+      "recall": 0.6876423690205011,
+      "f1-score": 0.6875600676187739,
+      "support": 7024.0
+    },
+    "weighted avg": {
+      "precision": 0.6878402889081439,
+      "recall": 0.6876423690205011,
+      "f1-score": 0.6875600676187739,
+      "support": 7024.0
+    }
+  }
+}

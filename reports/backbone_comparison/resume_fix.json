@@ -1,0 +1,9 @@
+{
+  "reason": "Preprocessing repr contains a process-specific function address; compare after removing only that address. No transforms/weights/data/settings changed.",
+  "old_trainer_sha256": "a49e1ef90259005b432d5dec8529285198dc7f634675ee6905d81522048ea596",
+  "new_trainer_sha256": "47ed87b62591b9e770bd757cc5dedf0f7d5bd359d7dbe16386dd2f2ef64a7638",
+  "migrated_manifest": "artifacts/backbones/ViT-L-14/extraction_manifest.json",
+  "preserved_source": "artifacts/backbones/trainer_before_resume_fix.py",
+  "preserved_manifest": "artifacts/backbones/ViT-L-14/extraction_manifest_before_resume_fix.json",
+  "verified_other_input_hashes": true
+}

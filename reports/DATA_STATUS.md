@@ -1,3 +1,7 @@
+## Latest update — 2026-10-27
+
+All 71,966 required VisualNews images are now locally available and verified. Earlier unavailability notes below are historical. EDA is in reports/eda/README.md. Sampled fresh/cached image-feature parity is imperfect (minimum cosine 0.856282); investigate preprocessing before claiming equivalent raw-image inference.
+
 # Data preparation status
 
 ## Reproduce
@@ -20,7 +24,7 @@ The selected benchmark is `merged_balanced`: 71,072 train, 7,024 validation, and
 
 See `data_audit.json` and `embedding_audit.json` for machine-readable results. This is a structural audit, not a model evaluation. Test examples have not been used for model selection.
 
-The VisualNews homepage linked by its official repository currently returns HTTP 404. A community metadata mirror exists at https://huggingface.co/datasets/twelcone/VisualNews but has not been adopted as authoritative. Original VisualNews images remain unavailable; official validation captions were subsequently recovered for encoder checks. Cached official embeddings permit classifier experiments while image acquisition is investigated. End-to-end CLIP preprocessing parity still needs verification before the app is declared ready.
+**Access update (2026-10-25):** The official VisualNews homepage now returns HTTP 200. `origin.tar` is 97,916,641,280 bytes (about 97.9 GB / 91.2 GiB) and supports HTTP range requests. A 1 MiB range download yielded 10 original JPEGs that passed decoding checks. See [access audit](visualnews_access_audit.json). Full download, official metadata extraction and mapping to NewsCLIPpings IDs remain pending. The earlier check returned HTTP 404. The community metadata mirror at https://huggingface.co/datasets/twelcone/VisualNews was downloaded and audited on 2026-10-25: all required split IDs are covered and all 40,830 existing official validation records match captions and image paths. It remains a community mirror, not authenticated as a byte-identical official release; see visualnews_metadata_audit.json. Complete mapped VisualNews images remain unavailable locally; official validation captions were subsequently recovered for encoder checks. Cached official embeddings permit classifier experiments while image acquisition is investigated. End-to-end CLIP preprocessing parity still needs verification before the app is declared ready.
 
 ## 5Pils-OOC
 

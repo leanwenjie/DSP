@@ -189,3 +189,37 @@ Benchmark images, NewsCLIPpings embedding pickles, optional ARO/5Pils data and r
 - `reports/mlp_concat/`: training metrics, learning curves, test metrics, manifest and readable findings.
 - `artifacts/mlp_concat/`: ignored numeric models and validation/test predictions.
 - Report/slides and their generator remain on hold and may reference the earlier research framing.
+
+- `docs/LITERATURE_REVIEW.md`: five-paper primary-source review, comparison limitations and proposed bounded improvement phase.
+
+- `scripts/visualnews_eda.py`: dataset charts, local training examples and validation-image CLIP agreement check.
+- `reports/eda/`: descriptive metrics, overview chart and interpretation.
+- `reports/encoder/visualnews_image_parity.json`: sampled cached-vs-fresh feature comparison; not a detection score.
+
+The CSV inventory does not enumerate the 71,966 newly acquired raw images individually. Their complete acquisition ledger is `data/visualnews/downloaded_images.jsonl`, with coverage summarised in `reports/visualnews_download_audit.json`.
+
+- `scripts/diagnose_clip_preprocessing.py`: fixed validation-image transform comparison without classifier fitting.
+- `reports/encoder/PREPROCESSING_DIAGNOSIS.md` and `preprocessing_diagnostic.json`: findings, per-image evidence and recommended self-consistent feature regeneration.
+
+- `scripts/train_fresh_clip.py`: resumable standard-CLIP training/validation feature extraction followed by six fixed LR candidates.
+- `reports/fresh_clip/`: frozen development protocol and eventual results.
+- `artifacts/fresh_clip/`: local extraction provenance, progress, feature buffers and eventual numeric classifier; separate from original app models.
+- `tests/test_fresh_clip.py`: feature-normalisation and progress-checkpoint checks.
+
+- `docs/OBJECTIVES_AND_PLAN.md`: current user-approved four objectives, VLM candidates, measurable evidence, completion status and remaining sequence. Supersedes historical objective wording; frozen protocols are preserved.
+
+- `scripts/audit_fresh_clip.py`: verifies feature completeness, unit norms, saved inference and metrics, then freezes the fresh B/32 candidate.
+- `scripts/profile_clip_backbone.py`: separate-process CPU profile of a selected CLIP backbone on eight fixed validation images/captions; no label scoring.
+- `reports/backbone_comparison/`: common comparison protocol and CPU profiling results.
+
+- `scripts/train_clip_backbones.py`: resumable B/16 and L/14 extraction/training, dimension-aware, separate outputs and per-representation winners; preserves frozen B/32 trainer.
+- `tests/test_backbone_features.py`: verifies 512/768-dimensional normalization, feature construction and shared numeric classifier inference.
+
+- `scripts/evaluate_clip_backbones.py`: audits/freezes all three development candidates, regenerates test/external features resumably, and reports frozen metrics and grouped uncertainty.
+- `reports/backbone_evaluation/`: frozen protocol/manifest and per-backbone evaluation results as completed.
+- `artifacts/backbone_evaluation/`: ignored progress, feature buffers and predictions. Persistent run log is `artifacts/backbone_evaluation_run.log`.
+
+- `scripts/report_backbones.py`: builds the completed result table and comparative chart from frozen outputs.
+- `scripts/check_l14_app.py`: verifies new app scores against all numeric VERITE predictions and six raw inputs.
+- `reports/app/l14_integration.json`: L/14 parity and timing evidence.
+- `reports/backbone_evaluation/RESULTS.md` and `comparison.png`: final three-backbone findings.

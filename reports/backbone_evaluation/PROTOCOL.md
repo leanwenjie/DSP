@@ -1,0 +1,11 @@
+# Frozen three-backbone follow-up evaluation — 2026-10-29
+
+Evaluate fresh CLIP B/32, B/16 and L/14 with their validation-selected interaction LR heads and stored thresholds. All three selected interaction representations; do not select a new feature mode/C/threshold on evaluation labels. Original test/VERITE outcomes were previously observed, so this is follow-up evaluation, not untouched-test research. No app replacement in this run.
+
+Before extraction/scoring, audit all development feature arrays, validation score/prediction parity and model/metric hashes; preserve original and resume-migrated provenance. Freeze selected heads, checkpoint hashes, annotation hashes, protocol and evaluator source. For B/16, the recorded historical trainer checksum is verified against its preserved source, not the newer resume-fix source. Retain this mapping explicitly.
+
+Extract fresh standard OpenAI image/text features for 7,264 NewsCLIPpings test pairs and 1,001 VERITE pairs. RGB images, model-specific standard preprocessing, float32 unit vectors, CPU batch eight. Reuse unique IDs/paths/captions within a task. Verify image hashes against acquisition records or original VERITE manifest. NewsCLIPpings captions tokenize without truncation; VERITE uses truncate=True to retain all rows consistently with the original external evaluation; disclose the unique-caption truncation count. Test and external images are not used to fit or select anything.
+
+Primary comparison: three frozen interaction heads on the same test rows. Also score each backbone's cosine baseline using its development threshold. Report accuracy, macro-F1, misleading precision/recall, false-alarm rate, confusion matrices and ranking metrics. Use 2,000 grouped bootstrap draws (seed 42), connected VisualNews IDs for NewsCLIPpings and story IDs for VERITE. Pairwise macro-F1 deltas use identical bootstrap draws and are exploratory, not multiplicity-adjusted superiority tests.
+
+VERITE primary: true versus out-of-context (663); secondary: true versus all misleading (1,001). Same frozen predictions, different row selection; report category detection counts. Maintain separate task tables. Persist row-level predictions and resumable feature buffers in ignored artifacts/backbone_evaluation. Validate all frozen hashes on restart; don't edit evaluator or protocol while active.

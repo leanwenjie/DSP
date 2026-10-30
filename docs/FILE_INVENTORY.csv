@@ -2,7 +2,7 @@ path,bytes,role,purpose
 .gitattributes,166,source/documentation,Git whitespace rules for valid existing CRLF CSV/license files.
 .gitignore,122,source/documentation,"Keeps environments, data, trained artifacts, secrets and caches out of source commits."
 .streamlit/config.toml,114,source/documentation,"App theme, 10 MB upload limit, headless mode and disabled usage telemetry."
-README.md,6367,source/documentation,"Current project entry point, state, results, run command and remaining work."
+README.md,7521,source/documentation,"Current project entry point, state, results, run command and remaining work."
 app.py,3696,source/documentation,Streamlit upload/caption interface; calls scripts/app_inference.py.
 artifacts/baseline/train_predictions.csv,2763319,local artifact,Similarity baseline training scores/predictions.
 artifacts/baseline/val_predictions.csv,273257,local artifact,Similarity validation scores/predictions; used by error/threshold analysis.
@@ -1974,24 +1974,41 @@ data/verite/red_dot_reference/VERITE_clip_image_embeddings_ViTB32.npy,2050176,lo
 data/verite/red_dot_reference/VERITE_clip_text_embeddings_ViTB32.npy,2050176,local data,"Dataset annotation, metadata, reference, audit or recovery file; see FILE_GUIDE Dataset file families."
 data/verite/red_evidence.csv,1374246,local data,"Dataset annotation, metadata, reference, audit or recovery file; see FILE_GUIDE Dataset file families."
 docs/CLEANUP_LOG.json,1546,source/documentation,"Exact cleanup paths, duplicate hashes, retained canonical copies and bytes removed."
-docs/FILE_GUIDE.md,20169,source/documentation,"This explanation of source, results, generated files and cleanup decisions."
+docs/FILE_GUIDE.md,22184,source/documentation,"This explanation of source, results, generated files and cleanup decisions."
+docs/LITERATURE_REVIEW.md,8776,source/documentation,Focused literature review and bounded improvement proposals.
+docs/OBJECTIVES_AND_PLAN.md,8301,source/documentation,"Current approved objectives, measurable evidence and multi-backbone comparison plan."
 docs/REFERENCE_ALIGNMENT.md,4568,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
+docs/VISUALNEWS_ACCESS.md,4515,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
 docs/archive/PROJECT_HISTORY.md,13301,source/documentation,"Preserved earlier project overview; contains historical plans/status, not current instructions."
 exports/DSP-app-Windows.zip,336982,app distribution,Small Windows app bundle; includes frozen small classifiers but no research datasets or cloud environment.
 reports/5pils_image_audit.json,2151,source/documentation,Optional 5Pils download successes and failures.
 reports/5pils_processing_audit.json,1005,source/documentation,Optional 5Pils crop validity and usable-image coverage.
-reports/DATA_STATUS.md,3741,source/documentation,Data preparation instructions and source/access limitations.
+reports/DATA_STATUS.md,4701,source/documentation,Data preparation instructions and source/access limitations.
 reports/app/README.md,5463,source/documentation,Human-readable report for app functionality/latency; earlier studies describe their state at the time.
 reports/app/smoke_and_latency.json,4488,source/documentation,"App parity checks, CPU timing and illustrative correct/incorrect cases."
+reports/backbone_comparison/PROTOCOL.md,1756,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
+reports/backbone_comparison/README.md,1357,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
+reports/backbone_comparison/ViT-B-16_profile.json,1714,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
+reports/backbone_comparison/ViT-B-32_profile.json,1719,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
+reports/backbone_comparison/ViT-L-14_profile.json,1709,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
 reports/baseline/README.md,2620,source/documentation,Human-readable report for similarity development study; earlier studies describe their state at the time.
 reports/baseline/metrics.json,3098,source/documentation,"Machine-readable metrics/settings for similarity development study; reproducibility evidence, not clutter."
 reports/baseline/similarity_distributions.png,49565,source/documentation,Presentation/report figure for similarity development study.
 reports/baseline/validation_selection.png,77272,source/documentation,Presentation/report figure for similarity development study.
 reports/data_audit.json,951,source/documentation,"Annotation counts, class balance, duplicates and split-overlap audit."
+reports/eda/README.md,4410,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
+reports/eda/dataset_overview.png,145021,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
+reports/eda/metrics.json,8289,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
 reports/embedding_audit.json,676,source/documentation,Official embedding integrity and required-vector coverage.
-reports/encoder/README.md,3833,source/documentation,Human-readable report for feature compatibility checks; earlier studies describe their state at the time.
+reports/encoder/README.md,4390,source/documentation,Human-readable report for feature compatibility checks; earlier studies describe their state at the time.
 reports/encoder/compatibility.json,2337,source/documentation,Sampled NewsCLIPpings text-feature compatibility and image smoke check.
 reports/encoder/verite_reference_parity.json,2070,source/documentation,Sampled VERITE image/text agreement with RED-DOT reference features.
+reports/encoder/visualnews_image_parity.json,8594,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
+reports/fresh_clip/PROTOCOL.md,1937,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
+reports/fresh_clip/README.md,2420,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
+reports/fresh_clip/audit.json,1752,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
+reports/fresh_clip/frozen_manifest.json,1702,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
+reports/fresh_clip/metrics.json,9981,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
 reports/logistic/README.md,3180,source/documentation,Human-readable report for logistic development comparison; earlier studies describe their state at the time.
 reports/logistic/metrics.json,10240,source/documentation,"Machine-readable metrics/settings for logistic development comparison; reproducibility evidence, not clutter."
 reports/logistic/validation_comparison.png,55978,source/documentation,Presentation/report figure for logistic development comparison.
@@ -2028,6 +2045,9 @@ reports/verite/evaluation/metrics.json,17781,source/documentation,"Machine-reada
 reports/verite/evaluation/results.png,79042,source/documentation,Presentation/report figure for frozen VERITE evaluation.
 reports/verite/image_audit.json,1356,source/documentation,"VERITE archive integrity, image coverage and extra-image audit."
 reports/verite/version_audit.json,1178,source/documentation,"Evidence that original/released reference annotations contain 1,001 pairs."
+reports/visualnews_access_audit.json,3462,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
+reports/visualnews_download_audit.json,996,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
+reports/visualnews_metadata_audit.json,1284,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
 requirements-app.txt,46,source/documentation,"Includes encoder requirements, then adds Streamlit. These four files are layered, not redundant."
 requirements-data.txt,28,source/documentation,Base NumPy/Pillow requirements.
 requirements-encoder.txt,189,source/documentation,"Includes model requirements, then adds pinned OpenAI CLIP, torch/torchvision and tokenizer dependencies."
@@ -2036,9 +2056,12 @@ scripts/THIRD_PARTY_LICENSE_5PILS.txt,11573,source/documentation,Required attrib
 scripts/analyse_similarity.py,6843,source/documentation,Investigates validation errors by training-defined similarity groups.
 scripts/app_inference.py,5051,source/documentation,"Runtime: validates uploads/captions, loads CLIP and verifies model hashes, then performs frozen inference."
 scripts/audit_embeddings.py,1716,source/documentation,"Checks embedding hashes, row coverage, dimension and numerical validity."
+scripts/audit_fresh_clip.py,3248,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
+scripts/audit_visualnews_download.py,2627,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
 scripts/check_app.py,3535,source/documentation,Integration check: compares app outputs with frozen VERITE predictions and records a small CPU latency sample.
 scripts/collect_5pils_images.py,3220,source/documentation,"Optional 5Pils image downloader, with decoding checks and failure logging."
 scripts/compare_thresholds.py,5795,source/documentation,Explores the validation-only 80%-recall operating point and its false-alarm cost.
+scripts/download_visualnews.py,5084,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
 scripts/evaluate_mlp_concat.py,5693,research follow-up,Main-reference alignment and matched concatenation MLP experiment; see reports/mlp_concat/README.md.
 scripts/evaluate_newsclippings_test.py,9222,source/documentation,Frozen official test evaluation with verified embeddings and shared-ID grouped intervals.
 scripts/evaluate_verite.py,9526,source/documentation,"Frozen external evaluation from raw VERITE images/captions, grouped intervals and plots."
@@ -2046,12 +2069,14 @@ scripts/model_inference.py,1617,source/documentation,Shared feature/scaling and 
 scripts/prepare_data.py,5926,source/documentation,Downloads pinned annotations/embeddings; checks downloads and split structure; writes receipts and audits.
 scripts/prepare_verite_upload.py,4633,source/documentation,"Reassembles split uploads, safely extracts images and audits image coverage."
 scripts/process_5pils_images.py,3888,source/documentation,Optional 5Pils crop/sidebar preprocessing and coverage checks.
+scripts/profile_clip_backbone.py,2951,research code/report,Fresh B/32 audit or three-backbone CPU feasibility; see respective README.
 scripts/report_verite.py,4487,source/documentation,Formats the VERITE results report from saved metrics; does not rerun inference.
 scripts/similarity_baseline.py,6921,source/documentation,Computes CLIP similarity and selects a threshold on validation only; shared development loaders.
 scripts/train_logistic.py,5702,source/documentation,Trains six logistic-regression feature/regularisation candidates; also provides features and saved-model inference.
 scripts/train_mlp.py,6480,source/documentation,Trains three fixed MLP seeds with validation stopping; also provides saved MLP forward-pass logic.
 scripts/verify_clip_encoder.py,4032,source/documentation,Compares fresh CLIP text features with official NewsCLIPpings features and checks image encoding.
 scripts/verify_verite_features.py,4068,source/documentation,Compares fresh image/text features with RED-DOT references; includes its resize diagnostic.
+scripts/visualnews_eda.py,7027,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."
 tests/test_app.py,3469,source/documentation,Upload validation and Streamlit interface/result/error behaviour.
 tests/test_logistic_features.py,2061,source/documentation,Interaction feature construction and saved logistic inference.
 tests/test_mlp_inference.py,2478,source/documentation,"Saved neural forward pass, precision and threshold boundaries."
@@ -2060,3 +2085,4 @@ tests/test_screening_threshold.py,989,source/documentation,"Recall target, minim
 tests/test_similarity_analysis.py,762,source/documentation,Similarity error-analysis calculations.
 tests/test_similarity_baseline.py,1416,source/documentation,Threshold-selection correctness for the similarity baseline.
 tests/test_verite_evaluation.py,1195,source/documentation,Story grouping and bootstrap calculations.
+tests/test_visualnews_download.py,1339,research documentation/code,"VisualNews acquisition, EDA and feature compatibility; see reports/eda/README.md."

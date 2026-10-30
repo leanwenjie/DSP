@@ -1,0 +1,79 @@
+{
+  "backbone": "ViT-L/14",
+  "cached_prediction_checks": 1001,
+  "raw_input_checks": 6,
+  "cases": [
+    {
+      "row": 0,
+      "total_seconds": 9.980128205002984,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": false,
+      "score": -3.8709231060500047,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "seconds": 0.8308714799932204
+    },
+    {
+      "row": 1,
+      "total_seconds": 0.8020269020053092,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": false,
+      "score": -5.277918806709674,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "seconds": 0.8016882159863599
+    },
+    {
+      "row": 2,
+      "total_seconds": 0.8150902269990183,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": true,
+      "score": 1.1350472570324182,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "seconds": 0.8147150659933686
+    },
+    {
+      "row": 3,
+      "total_seconds": 0.8089586500136647,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": false,
+      "score": -0.7787419390906811,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "seconds": 0.8086316440021619
+    },
+    {
+      "row": 4,
+      "total_seconds": 0.8029163950122893,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": true,
+      "score": 3.8313020319595226,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "seconds": 0.8025345840142109
+    },
+    {
+      "row": 5,
+      "total_seconds": 0.80742871799157,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": true,
+      "score": 1.5827882349677296,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "seconds": 0.8070832770026755
+    }
+  ],
+  "source_hashes": {
+    "scripts/app_inference.py": "8caf1d3dfa5c143fbfcfda56c944bae8bfd641106eb2b1fa36c559684fe9ab34",
+    "app.py": "a735dd9a2cf21bab079b268728abc97ddafbfc0a1851b04645109cfa7cd6a4d3",
+    "artifacts/backbones/ViT-L-14/best_model.npz": "18020dc8dbe8906d7be6d4fd3257c8b4eecd86baf740edc94efef52b9f49b4c3"
+  },
+  "timing_note": "Small six-case CPU sample; first total includes encoder loading. Analysis seconds exclude loading. Not laptop measurements."
+}

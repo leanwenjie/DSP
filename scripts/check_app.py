@@ -21,7 +21,7 @@ def main():
     parity=0
     with np.load(ROOT/'artifacts/verite/features.npz',allow_pickle=False) as d:
         for i in indices:
-            for name in MODELS:
+            for name in ('Logistic regression', 'CLIP similarity', 'MLP seed 42'):
                 score,_,flagged,_,_=detector.classify_vectors([d['image'][i:i+1],d['text'][i:i+1]],name)
                 ref=expected[(int(i),names[name])]
                 expected_score=-float(ref['score']) if name=='CLIP similarity' else float(ref['score'])
@@ -41,7 +41,7 @@ def main():
         np.testing.assert_allclose(result['score'],float(ref['score']),atol=1e-4,rtol=1e-4)
         cases.append(dict(row_index=int(i),label=r['label'],correct=result['flagged']==(r['label']!='true'),**result))
     # Exercise all three raw-input routes, not just their numeric heads.
-    for name in MODELS:
+    for name in ('Logistic regression', 'CLIP similarity', 'MLP seed 42'):
         result=detector.predict(image,caption,name)
         assert result['flagged']==bool(int(expected[(int(indices[-1]),names[name])]['prediction']))
     times=[c['seconds'] for c in cases]

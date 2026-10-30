@@ -49,6 +49,6 @@ if submitted:
 
 with st.expander('Research context and limitations'):
     st.write('Bachelor’s project: Multimodal Out-of-Context Misinformation Detection using Vision-Language Models.')
-    st.write('The models use frozen CLIP ViT-B/32 features. Classifiers were trained on NewsCLIPpings; thresholds were selected on validation data and kept unchanged for NewsCLIPpings test and VERITE evaluation.')
-    st.write('On VERITE’s true-versus-out-of-context task, logistic regression reached 69.00% macro-F1 and detected 54.46% of out-of-context pairs. These benchmark results do not guarantee performance on your upload.')
+    st.write('The default model uses frozen CLIP ViT-L/14 features and logistic regression. The other options retain the earlier B/32 experiments. Classifiers were trained on NewsCLIPpings; thresholds were selected on validation data and kept unchanged for NewsCLIPpings test and VERITE evaluation.')
+    st.write('The default L/14 model reached 83.62% macro-F1 on NewsCLIPpings test. On VERITE it reached 73.88% macro-F1 for true versus out-of-context pairs, detecting 55.69% of OOC pairs; macro-F1 was 53.77% when miscaptioned pairs were also included. These benchmark results do not guarantee performance on your upload.')
     st.write('Uploads and captions are processed by this app’s server in memory. The app does not write them to disk or send them to an external prediction API. Use a trusted local server for private content.')

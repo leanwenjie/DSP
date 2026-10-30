@@ -37,3 +37,9 @@ The pinned RED-DOT `src/extract_features.py` converts to RGB and resizes the lon
 Keep standard OpenAI preprocessing for the current model inference pipeline; the RED-DOT resize variant is a reference diagnostic, not a change selected on benchmark performance. Text compatibility is supported. Image compatibility with the released RED-DOT vectors is partial, and image parity with NewsCLIPpings training features is unverified. Future scores must disclose these limits and must not be described as an exact RED-DOT reproduction. No VERITE classifier scoring was performed.
 
 The feature checks above preceded the [completed frozen classifier evaluation](../verite/evaluation/README.md); their no-scoring statements describe the checks themselves.
+
+## Update 2026-10-27
+
+Original images are now available. The 64-image validation parity check failed the >0.999 agreement criterion (minimum cosine 0.856282, mean 0.982078). See `visualnews_image_parity.json` and [EDA interpretation](../eda/README.md). Earlier unavailable-image statements describe historical checks. App preprocessing remains unchanged pending diagnosis.
+
+Follow-up: [six-variant preprocessing diagnosis](PREPROCESSING_DIAGNOSIS.md) found no matching variant. Upstream square resizing worsens agreement; it is not a confirmed correction.

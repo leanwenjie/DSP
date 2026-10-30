@@ -35,7 +35,7 @@ class InterfaceTests(unittest.TestCase):
     def test_startup_and_missing_upload(self):
         at=AppTest.from_file(str(ROOT/'app.py'),default_timeout=30).run()
         self.assertEqual(len(at.exception),0)
-        self.assertEqual(at.selectbox[0].value,'Logistic regression')
+        self.assertEqual(at.selectbox[0].value,'CLIP L/14 + logistic regression')
         at.button[0].click().run()
         self.assertEqual(at.error[0].value,'Upload an image first.')
     def test_valid_submission_and_failure_messages(self):

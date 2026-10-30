@@ -1,0 +1,55 @@
+{
+  "model": "ViT-B/16",
+  "device": "cpu",
+  "threads": 2,
+  "batch_size": 1,
+  "sample_ids": [
+    1017079,
+    1095761,
+    1140887,
+    1628986,
+    407417,
+    211742,
+    719110,
+    522103
+  ],
+  "embedding_dimension": 512,
+  "parameters": 149620737,
+  "checkpoint_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+  "download_or_cache_check_seconds": 22.728875003987923,
+  "load_seconds": 4.4587278079707175,
+  "process_peak_rss_mib": 1641.34765625,
+  "torch": "2.7.1+cpu",
+  "preprocess": "Compose(\n    Resize(size=224, interpolation=bicubic, max_size=None, antialias=True)\n    CenterCrop(size=(224, 224))\n    <function _convert_image_to_rgb at 0x7ff546f3f2e0>\n    ToTensor()\n    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))\n)",
+  "timings": {
+    "image": {
+      "seconds": [
+        0.5088114760583267,
+        0.46107134502381086,
+        0.2794854349922389,
+        0.2290048220893368,
+        0.2181530229281634,
+        0.22001052100677043,
+        0.22798550501465797,
+        0.22081495099700987
+      ],
+      "median": 0.2284951635519974,
+      "p95": 0.4921024301962461
+    },
+    "text": {
+      "seconds": [
+        0.06372136005666107,
+        0.0570072130067274,
+        0.08091537409927696,
+        0.07936717697884887,
+        0.08024286001455039,
+        0.09347958897706121,
+        0.08693436800967902,
+        0.0777909979224205
+      ],
+      "median": 0.07980501849669963,
+      "p95": 0.09118876163847744
+    }
+  },
+  "limitation": "Eight samples, CPU only. RSS includes loading/metadata overhead, not GPU VRAM. Forward latency excludes preprocessing/tokenization. No classification evaluation."
+}

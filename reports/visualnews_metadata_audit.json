@@ -1,0 +1,51 @@
+{
+  "source": "https://huggingface.co/datasets/twelcone/VisualNews",
+  "revision": "8a68a1f31d3ed8ac30a86e8e78478f45dd80bc24",
+  "provenance": "Community mirror, not authenticated as byte-identical to the official archive metadata",
+  "bytes": 356272348,
+  "sha256": "642a28a0065e3a14d6ba74c23ec2b516710086a4df8e6b204d44095ff94f5caf",
+  "rows": 1259732,
+  "unique_ids": 1259732,
+  "duplicate_ids": 0,
+  "fields": [
+    "article_path",
+    "caption",
+    "id",
+    "image_path",
+    "source",
+    "topic"
+  ],
+  "sources": {
+    "washington_post": 162436,
+    "usa_today": 204348,
+    "guardian": 690234,
+    "bbc": 202714
+  },
+  "splits": {
+    "train": {
+      "pairs": 71072,
+      "unique_required_ids": 59876,
+      "missing_ids": 0,
+      "unique_required_images": 59876
+    },
+    "val": {
+      "pairs": 7024,
+      "unique_required_ids": 5943,
+      "missing_ids": 0,
+      "unique_required_images": 5943
+    },
+    "test": {
+      "pairs": 7264,
+      "unique_required_ids": 6147,
+      "missing_ids": 0,
+      "unique_required_images": 6147
+    }
+  },
+  "official_validation_metadata_comparison": {
+    "compared": 40830,
+    "caption_matches": 40830,
+    "image_path_matches": 40830
+  },
+  "official_archive_sample_path_matches": 4,
+  "official_archive_sample_count": 10
+}

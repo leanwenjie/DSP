@@ -1,3 +1,15 @@
+# Latest app update — 2026-10-30
+
+Default: **CLIP L/14 + logistic regression**, using the frozen validation-selected interaction head. Legacy B/32 options remain available. One encoder is retained at a time; switching backbones loads the selected encoder. Standard CPU inference only; laptop/GPU measurements remain unverified. The first L/14 use downloads its official ~890 MiB checkpoint, checksum-verified by OpenAI CLIP.
+
+31 automated tests passed. All 1,001 numeric VERITE predictions and six raw-image predictions matched frozen L/14 evaluation outputs. See `l14_integration.json` for evidence. Reported analysis time excludes model loading, upload/input validation and waiting for the inference lock. Long captions are rejected by the app, while benchmark VERITE evaluation permits documented truncation.
+
+The rebuilt Windows ZIP includes the new small classifier and frozen manifest, not the encoder checkpoint or datasets. Its internal checksum manifest passed verification. Windows launchers still need actual Windows validation. Raw examples are not bundled.
+
+L/14: NewsCLIPpings macro-F1 83.62%; VERITE true-vs-OOC macro-F1 73.88%, OOC recall 55.69%; all-misleading macro-F1 53.77%. Scores are not calibrated factual probabilities. Historical B/32 checks and timings below do not describe the new default.
+
+---
+
 # Image and Caption Review app
 
 The local Streamlit app accepts a still JPEG, PNG or WebP image and a caption, then runs a frozen CLIP-based classifier. Logistic regression is the default; similarity and the predesignated seed-42 MLP are available for comparison. Models and thresholds are unchanged from the recorded benchmark evaluations.

@@ -1,0 +1,33 @@
+{
+  "checked_at_utc": "2026-10-27T01:51:07.667614+00:00",
+  "snapshot_entries": 71966,
+  "duplicate_log_ids": 0,
+  "verified_unique_images": 71966,
+  "required_unique_images": 71966,
+  "unexpected_ids": [],
+  "failures": [],
+  "splits": {
+    "train": {
+      "required_unique_images": 59876,
+      "verified_unique_images": 59876,
+      "missing_unique_images": 0,
+      "pairs_with_verified_image": 71072
+    },
+    "val": {
+      "required_unique_images": 5943,
+      "verified_unique_images": 5943,
+      "missing_unique_images": 0,
+      "pairs_with_verified_image": 7024
+    },
+    "test": {
+      "required_unique_images": 6147,
+      "verified_unique_images": 6147,
+      "missing_unique_images": 0,
+      "pairs_with_verified_image": 7264
+    }
+  },
+  "archive_scan_complete": true,
+  "archive_offset": 97916636672,
+  "coverage_complete": true,
+  "warning": "Snapshot while acquisition may be running. Partial source-ordered subset is not a representative training/evaluation sample."
+}

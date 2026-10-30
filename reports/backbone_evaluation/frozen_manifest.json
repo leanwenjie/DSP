@@ -1,0 +1,98 @@
+{
+  "sha256": {
+    "data/visualnews/data.json": "642a28a0065e3a14d6ba74c23ec2b516710086a4df8e6b204d44095ff94f5caf",
+    "data/visualnews/downloaded_images.jsonl": "e8d488975f52a4662a678f8acfe96e2b32c0df818e03c92f1a2233803eb0f4d6",
+    "artifacts/clip/ViT-B-32.pt": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af",
+    "reports/fresh_clip/PROTOCOL.md": "d73980d8db68f337af42d34ff2fa7f6d46455179c4112ef88a751d0edb115f33",
+    "scripts/train_fresh_clip.py": "55101904a68cf289dbf4896e6bebbbe88edb4c74d3890a28887c7e328cea0e66",
+    "scripts/model_inference.py": "dbfd43788548c68bbf41e576f069c0123ac5838a1948afc535300308e7faee11",
+    "scripts/similarity_baseline.py": "e6c0454ee68275365287e51c211109ea95ef306ea0822d9a378890bd99f44d23",
+    "data/newsclippings/train.json": "2e03619dacf516dbe8a53a7bf3767bcd3a4d65d25877b8c32d53eac7e8e30a7d",
+    "data/newsclippings/val.json": "892ab89f9dd94302caadfeea3cde43c24499e22f34a3220158b0589ff767fe52",
+    "artifacts/fresh_clip/best_model.npz": "24e3f0038bcf685d13032b9cc15784c5c733d3cf9f8c72e2d21d805a2ad76ebc",
+    "artifacts/fresh_clip/extraction_manifest.json": "82183de3e0d55b0e77f547104129ed5749d42630c8b20996e52d8ee1a92d6a40",
+    "reports/fresh_clip/metrics.json": "9e7988b0cedd5e01ac7d720397821106cb2fbd0c51ba42f4ac533105db1020d3",
+    "artifacts/fresh_clip/train_image.npy": "5694e0c0be959959e36ffd1ea8d2ab16f26b01af71800b0055dc0f7ba42e5504",
+    "artifacts/fresh_clip/train_text.npy": "b5d5c470a519645a4c91c4bf7d11ff99344bd3586a1d0aea35ca89ca017be2a9",
+    "artifacts/fresh_clip/val_image.npy": "08f7f278f8927c1b97f70903d7a4b23bf3d703f47b2b8fec7747131860a12cb4",
+    "artifacts/fresh_clip/val_text.npy": "7fdef7b749a52ef599d257b6cc4b41b59e604c72e89b704cc17d41857b463cd7",
+    "artifacts/clip/ViT-B-16.pt": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+    "reports/backbone_comparison/PROTOCOL.md": "636b72d631f39d869d552d73f20f0b64c077cd308ed9ba5531c1bf6e289c44cd",
+    "artifacts/backbones/trainer_before_resume_fix.py": "a49e1ef90259005b432d5dec8529285198dc7f634675ee6905d81522048ea596",
+    "artifacts/backbones/ViT-B-16/best_model.npz": "b0f0c66443ed35fc865e00482b2d6b666fcc6400de7571aa7cd3ed9418ac20d8",
+    "artifacts/backbones/ViT-B-16/extraction_manifest.json": "49319fbea335fee16b49cbdd90cc0342fd341275aed05ddab768d6a01f05fe68",
+    "reports/backbone_comparison/ViT-B-16/metrics.json": "faf3b7cbe007ab7060386f17e49fbc0aea82b047b9f6696dfaf6d1830dcc5457",
+    "artifacts/backbones/ViT-B-16/train_image.npy": "bb83e670494fb8ec2c742caa99b2fcd82f5eefef05759d94675f71d3635f9836",
+    "artifacts/backbones/ViT-B-16/train_text.npy": "540c7cb8b9b015ac9c17b6bfef9685f52980636aba938fdabf6f3f68234f1628",
+    "artifacts/backbones/ViT-B-16/val_image.npy": "c2d67b87056d2b1732918c9e12d5416abf931a91da8b21539ad909798c60f0d1",
+    "artifacts/backbones/ViT-B-16/val_text.npy": "5fc2f12b5d1cd93d011daaf6ec68d34bbbeffc80d1a249140a294b239c875f06",
+    "artifacts/clip/ViT-L-14.pt": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+    "scripts/train_clip_backbones.py": "47ed87b62591b9e770bd757cc5dedf0f7d5bd359d7dbe16386dd2f2ef64a7638",
+    "artifacts/backbones/ViT-L-14/best_model.npz": "18020dc8dbe8906d7be6d4fd3257c8b4eecd86baf740edc94efef52b9f49b4c3",
+    "artifacts/backbones/ViT-L-14/extraction_manifest.json": "0534d4be524a0dd57bdbf0f7a62348ab01985e90563601e6d208bdcae4c8a8fc",
+    "reports/backbone_comparison/ViT-L-14/metrics.json": "4a24c87a5cba9c46cb3da6b33994765e9091d356d0238a174083740cabc01cb7",
+    "artifacts/backbones/ViT-L-14/train_image.npy": "85fae88214b4b709586f87ce132fef51fed58535a64922e5a844d03893bfa311",
+    "artifacts/backbones/ViT-L-14/train_text.npy": "fe823399a8713646a548b633662ac0fa7811d93a6830ee1aaa7760cb1215d93f",
+    "artifacts/backbones/ViT-L-14/val_image.npy": "7a721b3d6a51f5a9a11e5cf849eca165b4c912d158c87aad14a72cd42c0a573c",
+    "artifacts/backbones/ViT-L-14/val_text.npy": "f84684a7374b3e68d7cb455042bd2d3fecfa4a42d436ad2cf1dad20334f01fe3",
+    "reports/backbone_evaluation/PROTOCOL.md": "16084bf75692e4feea2ea71a55797d5c254e8d03e97c12c955d44bed1a000315",
+    "scripts/evaluate_clip_backbones.py": "d4ca44fa8ae4afea332ff387ac8d722ccf33609b48f78f5bb87b1adb26736f6d",
+    "scripts/evaluate_newsclippings_test.py": "0a1d6e79672f114732c2d91b6530fdc5feb4dfb27a3631642c0755644cc54dcb",
+    "scripts/evaluate_verite.py": "fd489261ed18b1035cd2760f97dc6977540dc00738a4e34ffe4b325bdc050462",
+    "data/newsclippings/test.json": "616e06af39fd8afa88d1920e455e4d6ca69e013c9b2fa4dadda593fb0e813aea",
+    "data/verite/VERITE.csv": "7f5661860f2e34624c1721710ed37fac5e1e78a4307400530dd587cb0d15a040",
+    "reports/verite/evaluation/frozen_manifest.json": "4948c110f7b16d7cd04606bb16caa09ecdc504079bd8d2c8f085685b93c3673e",
+    "reports/backbone_comparison/resume_fix.json": "6557281523b3a64db3ac005ad5d1f9a469cf05963412450950ebeeddcec30bdc"
+  },
+  "audits": {
+    "ViT-B/32": {
+      "feature_hashes": {
+        "train_image": "5694e0c0be959959e36ffd1ea8d2ab16f26b01af71800b0055dc0f7ba42e5504",
+        "train_text": "b5d5c470a519645a4c91c4bf7d11ff99344bd3586a1d0aea35ca89ca017be2a9",
+        "val_image": "08f7f278f8927c1b97f70903d7a4b23bf3d703f47b2b8fec7747131860a12cb4",
+        "val_text": "7fdef7b749a52ef599d257b6cc4b41b59e604c72e89b704cc17d41857b463cd7"
+      },
+      "validation_macro_f1": 0.6875600676187739,
+      "inference_parity": true,
+      "historical_source_aliases": {}
+    },
+    "ViT-B/16": {
+      "feature_hashes": {
+        "train_image": "bb83e670494fb8ec2c742caa99b2fcd82f5eefef05759d94675f71d3635f9836",
+        "train_text": "540c7cb8b9b015ac9c17b6bfef9685f52980636aba938fdabf6f3f68234f1628",
+        "val_image": "c2d67b87056d2b1732918c9e12d5416abf931a91da8b21539ad909798c60f0d1",
+        "val_text": "5fc2f12b5d1cd93d011daaf6ec68d34bbbeffc80d1a249140a294b239c875f06"
+      },
+      "validation_macro_f1": 0.7770405513711917,
+      "inference_parity": true,
+      "historical_source_aliases": {
+        "scripts/train_clip_backbones.py": "artifacts/backbones/trainer_before_resume_fix.py"
+      }
+    },
+    "ViT-L/14": {
+      "feature_hashes": {
+        "train_image": "85fae88214b4b709586f87ce132fef51fed58535a64922e5a844d03893bfa311",
+        "train_text": "fe823399a8713646a548b633662ac0fa7811d93a6830ee1aaa7760cb1215d93f",
+        "val_image": "7a721b3d6a51f5a9a11e5cf849eca165b4c912d158c87aad14a72cd42c0a573c",
+        "val_text": "f84684a7374b3e68d7cb455042bd2d3fecfa4a42d436ad2cf1dad20334f01fe3"
+      },
+      "validation_macro_f1": 0.8292287632400654,
+      "inference_parity": true,
+      "historical_source_aliases": {}
+    }
+  },
+  "thresholds": {
+    "ViT-B/32": {
+      "negative_decision_threshold": 0.06510122560829722,
+      "cosine_threshold": 0.2967459978343128
+    },
+    "ViT-B/16": {
+      "negative_decision_threshold": 0.11550149076482377,
+      "cosine_threshold": 0.2979768699613449
+    },
+    "ViT-L/14": {
+      "negative_decision_threshold": 0.004028608531695233,
+      "cosine_threshold": 0.2376762482060819
+    }
+  }
+}

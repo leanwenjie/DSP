@@ -1,0 +1,116 @@
+{
+  "checked_date": "2026-10-25",
+  "official_page": "https://www.cs.rice.edu/~vo9/visualnews/",
+  "archive": "https://www.cs.rice.edu/~vo9/visualnews/origin.tar",
+  "archive_bytes": 97916641280,
+  "http_status": 206,
+  "requested_range": "bytes=0-1048575",
+  "downloaded_bytes": 1048576,
+  "samples": [
+    {
+      "archive_path": "origin/bbc/images/0038/392.jpg",
+      "local_path": "data/visualnews/access_sample/392.jpg",
+      "bytes": 30131,
+      "sha256": "7914921e678e7a7ed58f102e8536e762b897354bd65a3782002dd4ba09773e29",
+      "dimensions": [
+        624,
+        351
+      ]
+    },
+    {
+      "archive_path": "origin/bbc/images/0038/435.jpg",
+      "local_path": "data/visualnews/access_sample/435.jpg",
+      "bytes": 96594,
+      "sha256": "77b10b25afaa93a319038ba53a44429cacbd1cba72931da184475cd3bfc60418",
+      "dimensions": [
+        768,
+        432
+      ]
+    },
+    {
+      "archive_path": "origin/bbc/images/0038/847.jpg",
+      "local_path": "data/visualnews/access_sample/847.jpg",
+      "bytes": 73315,
+      "sha256": "33f6721293855a49973be5fb53a833464b915da774b96d5615d9a2e0ef1c9546",
+      "dimensions": [
+        976,
+        549
+      ]
+    },
+    {
+      "archive_path": "origin/bbc/images/0038/054.jpg",
+      "local_path": "data/visualnews/access_sample/054.jpg",
+      "bytes": 33705,
+      "sha256": "c5fd0909def2e9e63ec2961c9d4b1ae1a945d5437959b8207282c9e14a6acf18",
+      "dimensions": [
+        464,
+        261
+      ]
+    },
+    {
+      "archive_path": "origin/bbc/images/0038/722.jpg",
+      "local_path": "data/visualnews/access_sample/722.jpg",
+      "bytes": 134891,
+      "sha256": "cb6a1b40f3eb4b207b74d144b6753155131b869e19604a336c92e9799a704bb9",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "archive_path": "origin/bbc/images/0038/085.jpg",
+      "local_path": "data/visualnews/access_sample/085.jpg",
+      "bytes": 43928,
+      "sha256": "013c462b6c8dfb8f02c226a42f5b9636871ef985fdb1f353aa7db4b37c5b6927",
+      "dimensions": [
+        512,
+        288
+      ]
+    },
+    {
+      "archive_path": "origin/bbc/images/0038/343.jpg",
+      "local_path": "data/visualnews/access_sample/343.jpg",
+      "bytes": 25622,
+      "sha256": "2597d93e5bf0d524e44c88110d241340c0fc225a207018091fb80222aba115e3",
+      "dimensions": [
+        624,
+        351
+      ]
+    },
+    {
+      "archive_path": "origin/bbc/images/0038/896.jpg",
+      "local_path": "data/visualnews/access_sample/896.jpg",
+      "bytes": 32026,
+      "sha256": "02ffe6c4ad52a54887585628a41eb193629292aed5b3d31697035121e36ea651",
+      "dimensions": [
+        640,
+        360
+      ]
+    },
+    {
+      "archive_path": "origin/bbc/images/0038/449.jpg",
+      "local_path": "data/visualnews/access_sample/449.jpg",
+      "bytes": 60148,
+      "sha256": "f22c28a4f05a40b96b848f565f3fd00cb4564b979d3d555fddb95071b4ed6aab",
+      "dimensions": [
+        976,
+        549
+      ]
+    },
+    {
+      "archive_path": "origin/bbc/images/0038/028.jpg",
+      "local_path": "data/visualnews/access_sample/028.jpg",
+      "bytes": 32998,
+      "sha256": "360d02d415cb3de47e75966667054dc8cfc0fdc2b6f243f5e17b88d89cc7932d",
+      "dimensions": [
+        600,
+        338
+      ]
+    }
+  ],
+  "limitations": [
+    "Only first 10 images verified; not full coverage or NewsCLIPpings ID mapping.",
+    "Official metadata data.json not yet extracted.",
+    "Dates and locations are not dedicated fields in the notebook examples."
+  ]
+}

@@ -11,7 +11,7 @@ from PIL import Image, UnidentifiedImageError
 from prepare_data import ROOT, digest
 from model_inference import score_saved
 
-MODELS = ('Logistic regression', 'CLIP similarity', 'MLP seed 42')
+MODELS = ('CLIP L/14 + logistic regression', 'Logistic regression', 'CLIP similarity', 'MLP seed 42')
 MAX_BYTES = 10 * 1024 * 1024
 MAX_PIXELS = 20_000_000
 
@@ -56,16 +56,18 @@ class Detector:
             'MLP seed 42': ROOT/'artifacts/mlp/model_seed42.npz',
             'CLIP similarity': ROOT/'reports/baseline/metrics.json',
         }
+        self.paths[MODELS[0]] = ROOT/'artifacts/backbones/ViT-L-14/best_model.npz'
         manifest = ROOT/'reports/newsclippings_test/frozen_manifest.json'
         try:
             self.hashes = json.loads(manifest.read_text())['sha256']
+            self.hashes.update(json.loads((ROOT/'reports/backbone_evaluation/frozen_manifest.json').read_text())['sha256'])
             for path in self.paths.values():
                 self.verify(path)
         except (OSError, KeyError) as exc:
             raise RuntimeError('Frozen model files are missing. Restore the project model artifacts before starting inference.') from exc
         torch.set_num_threads(2)
-        self.model, self.preprocess = clip.load('ViT-B/32', device='cpu', jit=False, download_root=str(ROOT/'artifacts/clip'))
-        self.model.eval()
+        self.backbone = None
+        self.model = None
 
     def verify(self, path):
         if digest(path) != self.hashes[str(path.relative_to(ROOT))]:
@@ -83,12 +85,20 @@ class Detector:
         with np.load(path, allow_pickle=False) as saved:
             score = float(score_saved(vectors, saved)[0])
             threshold = -float(saved['threshold'])
-        score_type = 'decision score' if model_name == 'Logistic regression' else 'sigmoid score (uncalibrated)'
+        score_type = 'sigmoid score (uncalibrated)' if model_name == 'MLP seed 42' else 'decision score'
         return score, threshold, score > threshold, score_type, 'above'
 
     def predict(self, image, caption, model_name):
-        started = time.perf_counter()
+        if model_name not in MODELS:
+            raise ValueError('Unknown model.')
         with self.lock, torch.inference_mode():
+            backbone = 'ViT-L/14' if model_name == MODELS[0] else 'ViT-B/32'
+            if backbone != self.backbone:
+                self.model = None
+                self.model, self.preprocess = clip.load(backbone, device='cpu', jit=False, download_root=str(ROOT/'artifacts/clip'))
+                self.model.eval()
+                self.backbone = backbone
+            started = time.perf_counter()
             v = self.model.encode_image(self.preprocess(image).unsqueeze(0)).float().numpy()
             t = self.model.encode_text(clip.tokenize([caption], truncate=False)).float().numpy()
             vectors = []
