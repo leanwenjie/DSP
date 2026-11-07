@@ -1,3 +1,13 @@
+# Unified screening update — 2026-11-08
+
+The default L/14 option returns **one** review/no-flag decision. It flags when the unchanged classifier flags OR same-backbone CLIP cosine similarity is below the existing validation threshold, 0.2376762482060819. No new encoder, retraining or threshold fitting. This includes low visual–textual compatibility within potential-misinformation screening; it does not prove factual error. Legacy B/32 options retain their original rules.
+
+See [follow-up evaluation](../unified_screening/README.md) for the recall/false-alarm trade-off and reproducible checks. Historical classifier-only performance below does not describe the new unified decision. The UI reports one result and retains technical rule details in the explanation expander. Scores are not calibrated probabilities; jokes, indirect captions and unfamiliar images can trigger false alarms.
+
+Additional required file: `reports/backbone_comparison/ViT-L-14/metrics.json`, hash-verified against the frozen manifest. The updated app ZIP includes it. Test with `.venv/bin/python scripts/evaluate_unified_screening.py` or the current `scripts/check_l14_app.py`; neither overwrites historical benchmark reports.
+
+---
+
 # Latest app update — 2026-10-30
 
 Default: **CLIP L/14 + logistic regression**, using the frozen validation-selected interaction head. Legacy B/32 options remain available. One encoder is retained at a time; switching backbones loads the selected encoder. Standard CPU inference only; laptop/GPU measurements remain unverified. The first L/14 use downloads its official ~890 MiB checkpoint, checksum-verified by OpenAI CLIP.

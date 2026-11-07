@@ -223,3 +223,9 @@ The CSV inventory does not enumerate the 71,966 newly acquired raw images indivi
 - `scripts/check_l14_app.py`: verifies new app scores against all numeric VERITE predictions and six raw inputs.
 - `reports/app/l14_integration.json`: L/14 parity and timing evidence.
 - `reports/backbone_evaluation/RESULTS.md` and `comparison.png`: final three-backbone findings.
+
+## Unified screening follow-up (2026-11-08)
+
+- `scripts/evaluate_unified_screening.py`: evaluates the fixed L/14 classifier-OR-similarity rule, verifies cached/raw inference and preserves original reports. Optional `--banana-image PATH` records illustrative predictions, not accuracy evidence.
+- `reports/unified_screening/`: prespecified follow-up rule, provenance, before/after metrics and limitations.
+- `scripts/check_l14_app.py`: now checks original classifier parity plus unified raw-input decisions; writes its new report under `reports/unified_screening/`.

@@ -1,0 +1,289 @@
+{
+  "newsclippings_test": {
+    "classifier_only": {
+      "count": 7264,
+      "accuracy": 0.8363160792951542,
+      "macro_f1": 0.8362471808134824,
+      "misleading_precision": 0.8507034165948895,
+      "misleading_recall": 0.8158039647577092,
+      "false_positive_rate": 0.14317180616740088,
+      "confusion_matrix": [
+        [
+          3112,
+          520
+        ],
+        [
+          669,
+          2963
+        ]
+      ]
+    },
+    "unified": {
+      "count": 7264,
+      "accuracy": 0.8189702643171806,
+      "macro_f1": 0.8186291995907605,
+      "misleading_precision": 0.7935140613123891,
+      "misleading_recall": 0.8623348017621145,
+      "false_positive_rate": 0.2243942731277533,
+      "confusion_matrix": [
+        [
+          2817,
+          815
+        ],
+        [
+          500,
+          3132
+        ]
+      ]
+    },
+    "added_detections": 169,
+    "added_false_alarms": 295
+  },
+  "verite_primary": {
+    "classifier_only": {
+      "count": 663,
+      "accuracy": 0.7496229260935143,
+      "macro_f1": 0.7387930052403736,
+      "misleading_precision": 0.8916256157635468,
+      "misleading_recall": 0.556923076923077,
+      "false_positive_rate": 0.0650887573964497,
+      "confusion_matrix": [
+        [
+          316,
+          22
+        ],
+        [
+          144,
+          181
+        ]
+      ]
+    },
+    "unified": {
+      "count": 663,
+      "accuracy": 0.7571644042232277,
+      "macro_f1": 0.7497661596022251,
+      "misleading_precision": 0.8660714285714286,
+      "misleading_recall": 0.5969230769230769,
+      "false_positive_rate": 0.08875739644970414,
+      "confusion_matrix": [
+        [
+          308,
+          30
+        ],
+        [
+          131,
+          194
+        ]
+      ]
+    },
+    "added_detections": 13,
+    "added_false_alarms": 8
+  },
+  "verite_all_misleading": {
+    "classifier_only": {
+      "count": 1001,
+      "accuracy": 0.5414585414585414,
+      "macro_f1": 0.5377215638177243,
+      "misleading_precision": 0.9112903225806451,
+      "misleading_recall": 0.34087481146304677,
+      "false_positive_rate": 0.0650887573964497,
+      "confusion_matrix": [
+        [
+          316,
+          22
+        ],
+        [
+          437,
+          226
+        ]
+      ]
+    },
+    "unified": {
+      "count": 1001,
+      "accuracy": 0.5574425574425574,
+      "macro_f1": 0.5559517622519494,
+      "misleading_precision": 0.8928571428571429,
+      "misleading_recall": 0.3770739064856712,
+      "false_positive_rate": 0.08875739644970414,
+      "confusion_matrix": [
+        [
+          308,
+          30
+        ],
+        [
+          413,
+          250
+        ]
+      ]
+    },
+    "added_detections": 24,
+    "added_false_alarms": 8
+  },
+  "raw_verite_checks": [
+    {
+      "row": 0,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": false,
+      "classifier_flagged": false,
+      "score": -3.8709231060500047,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "cosine": 0.3203965164770282,
+      "cosine_threshold": 0.2376762482060819,
+      "unified": true,
+      "seconds": 1.1198682580143213
+    },
+    {
+      "row": 1,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": false,
+      "classifier_flagged": false,
+      "score": -5.277918806709674,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "cosine": 0.33428104364707856,
+      "cosine_threshold": 0.2376762482060819,
+      "unified": true,
+      "seconds": 1.1160945199953858
+    },
+    {
+      "row": 2,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": true,
+      "classifier_flagged": true,
+      "score": 1.1350472570324182,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "cosine": 0.22875322293770384,
+      "cosine_threshold": 0.2376762482060819,
+      "unified": true,
+      "seconds": 1.0114969330024906
+    },
+    {
+      "row": 3,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": false,
+      "classifier_flagged": false,
+      "score": -0.7787419390906811,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "cosine": 0.281891443861341,
+      "cosine_threshold": 0.2376762482060819,
+      "unified": true,
+      "seconds": 0.993266784993466
+    },
+    {
+      "row": 4,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": true,
+      "classifier_flagged": true,
+      "score": 3.8313020319595226,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "cosine": 0.22463417236483585,
+      "cosine_threshold": 0.2376762482060819,
+      "unified": true,
+      "seconds": 1.2266936270170845
+    },
+    {
+      "row": 5,
+      "model": "CLIP L/14 + logistic regression",
+      "flagged": true,
+      "classifier_flagged": true,
+      "score": 1.5827882349677296,
+      "threshold": -0.004028608531695233,
+      "score_type": "decision score",
+      "flag_when": "above",
+      "cosine": 0.22001707935901416,
+      "cosine_threshold": 0.2376762482060819,
+      "unified": true,
+      "seconds": 1.0127606139867567
+    }
+  ],
+  "banana_diagnostic": {
+    "image_sha256": "fe23c58652b3da3471fd86bf333aa27b45f2d9238ad03b42f4dfc795acf3954c",
+    "note": "Substitute public image, not the user upload. Four illustrative prompts; not a challenge-set accuracy estimate. First-person caption is ambiguous.",
+    "cases": [
+      {
+        "caption": "A yellow banana on a white background.",
+        "model": "CLIP L/14 + logistic regression",
+        "flagged": false,
+        "classifier_flagged": false,
+        "score": -6.1676492757235275,
+        "threshold": -0.004028608531695233,
+        "score_type": "decision score",
+        "flag_when": "above",
+        "cosine": 0.3083007231156638,
+        "cosine_threshold": 0.2376762482060819,
+        "unified": true,
+        "seconds": 1.1528294239833485
+      },
+      {
+        "caption": "A photograph of a piece of fruit.",
+        "model": "CLIP L/14 + logistic regression",
+        "flagged": false,
+        "classifier_flagged": false,
+        "score": -4.420998732081266,
+        "threshold": -0.004028608531695233,
+        "score_type": "decision score",
+        "flag_when": "above",
+        "cosine": 0.2679861616214699,
+        "cosine_threshold": 0.2376762482060819,
+        "unified": true,
+        "seconds": 1.062368315004278
+      },
+      {
+        "caption": "A person standing in a room.",
+        "model": "CLIP L/14 + logistic regression",
+        "flagged": true,
+        "classifier_flagged": true,
+        "score": 1.0351575356465745,
+        "threshold": -0.004028608531695233,
+        "score_type": "decision score",
+        "flag_when": "above",
+        "cosine": 0.17259811190109453,
+        "cosine_threshold": 0.2376762482060819,
+        "unified": true,
+        "seconds": 1.156380155007355
+      },
+      {
+        "caption": "i am human",
+        "model": "CLIP L/14 + logistic regression",
+        "flagged": true,
+        "classifier_flagged": false,
+        "score": -1.540278397018799,
+        "threshold": -0.004028608531695233,
+        "score_type": "decision score",
+        "flag_when": "above",
+        "cosine": 0.17438778746856753,
+        "cosine_threshold": 0.2376762482060819,
+        "unified": true,
+        "seconds": 1.3443640179757494
+      }
+    ]
+  },
+  "provenance": {
+    "cached_input_sha256": {
+      "artifacts/backbone_evaluation/ViT-L-14_newsclippings_image.npy": "3bb0d01ea4c8bafc36fae4c0422f948d868825d51327fc245da24e2ddd93ca24",
+      "artifacts/backbone_evaluation/ViT-L-14_newsclippings_text.npy": "7dc8a028823be04ddc994989a715e5fbb3ae527649b06823c8a7f882257c17e2",
+      "artifacts/backbone_evaluation/ViT-L-14_newsclippings_predictions.npz": "f2ea81b2cbf06ee79e59528b1a45042d038a765572ebfff1263b878cf966c043",
+      "artifacts/backbone_evaluation/ViT-L-14_verite_image.npy": "42de0cf538a138ef712923dca5754fffaecf0fecc22f44b3f3f6455a3900fa86",
+      "artifacts/backbone_evaluation/ViT-L-14_verite_text.npy": "8912093912a7586e331852a0e8441c3ff0f2e950d0fffbe4e5f8ceff9cb789fd",
+      "artifacts/backbone_evaluation/ViT-L-14_verite_predictions.npz": "f5dc7aa528b58816b8db78e2312712e982c0045d2a308009b2c4e4d9aede2b9e"
+    },
+    "source_sha256": {
+      "scripts/evaluate_unified_screening.py": "be855724abd541f09966a428d76e4186e68b9582a2b37c7f1cfc0adcff262579",
+      "scripts/app_inference.py": "7ec6c9dfd46bfb84fb5117b44bf399baf3c27b2ffcc53c3813cc4bbcf8e5206c",
+      "reports/unified_screening/PROTOCOL.md": "ab952fd490de2fffcea596680fa96764a797acc677053370cfa7c0457d9501ea"
+    },
+    "frozen_inputs_verified": 43,
+    "numeric_rows_checked": 8265,
+    "threshold": 0.2376762482060819,
+    "note": "Exploratory fixed-rule follow-up on previously examined benchmarks. No fitting. Four-sentence banana diagnostic is not a generalisation estimate."
+  }
+}

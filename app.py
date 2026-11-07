@@ -30,17 +30,19 @@ if submitted:
         with st.spinner('Assessing the pairing. The first run loads the model and may take longer…'):
             result = load_detector().predict(image, text, model_name)
         if result['flagged']:
-            st.warning('Flagged for review — the model found signs of a misleading pairing.')
+            st.warning('Flagged for review — the image and caption may be inconsistent or misleadingly paired.')
         else:
             st.info('No mismatch flagged — this does not confirm that the caption is true.')
-        left, right = st.columns(2)
-        left.metric('Model score', f"{result['score']:.4f}")
-        right.metric('Analysis time', f"{result['seconds']:.2f} s")
+        st.metric('Analysis time', f"{result['seconds']:.2f} s")
         st.caption('Analysis time excludes initial model loading, upload and image validation.')
         st.write('Check the original source, publication date and location before relying on this content.')
         with st.expander('Understand this result'):
             st.write(f"Model: {result['model']}. Score type: {result['score_type']}.")
-            st.write(f"This model flags a pair when the score is {result['flag_when']} its fixed threshold ({result['threshold']:.6f}). The comparison uses full precision.")
+            if result['unified']:
+                st.write('The default screening rule returns one decision: review the pair if the existing classifier flags it OR CLIP finds low image–text similarity. Both thresholds were selected on news validation data; neither was adjusted to your upload. This also screens for visible inconsistencies, but cannot catch every mismatch.')
+                st.write(f"Classifier score: {result['score']:.4f}, flags above {result['threshold']:.6f}. CLIP similarity: {result['cosine']:.4f}, flags below {result['cosine_threshold']:.6f}. Comparisons use full precision.")
+            else:
+                st.write(f"This legacy comparison model flags a pair when its score ({result['score']:.4f}) is {result['flag_when']} its fixed threshold ({result['threshold']:.6f}). The comparison uses full precision.")
             st.write('The score is not a probability that the claim is false. The model uses learned image–caption relationships; it does not search for external evidence or identify a specific factual error.')
     except ValueError as exc:
         st.error(str(exc))
@@ -49,6 +51,6 @@ if submitted:
 
 with st.expander('Research context and limitations'):
     st.write('Bachelor’s project: Multimodal Out-of-Context Misinformation Detection using Vision-Language Models.')
-    st.write('The default model uses frozen CLIP ViT-L/14 features and logistic regression. The other options retain the earlier B/32 experiments. Classifiers were trained on NewsCLIPpings; thresholds were selected on validation data and kept unchanged for NewsCLIPpings test and VERITE evaluation.')
-    st.write('The default L/14 model reached 83.62% macro-F1 on NewsCLIPpings test. On VERITE it reached 73.88% macro-F1 for true versus out-of-context pairs, detecting 55.69% of OOC pairs; macro-F1 was 53.77% when miscaptioned pairs were also included. These benchmark results do not guarantee performance on your upload.')
+    st.write('The default uses frozen CLIP ViT-L/14 and one combined screening rule: the existing logistic classifier OR low CLIP similarity. It does not retrain the model. Other options retain the earlier B/32 rules. Thresholds remain fixed from news validation data.')
+    st.write('Exploratory follow-up evaluation: unified screening reached 81.86% macro-F1 and 86.23% misleading recall on NewsCLIPpings test, versus 83.62% and 81.58% for the original classifier alone. Broader screening introduces more false alarms. On VERITE true-versus-OOC, unified macro-F1 was 74.98% and recall 59.69%; all-misleading macro-F1 was 55.60%. These already examined benchmarks do not establish reliability on arbitrary uploads.')
     st.write('Uploads and captions are processed by this app’s server in memory. The app does not write them to disk or send them to an external prediction API. Use a trusted local server for private content.')

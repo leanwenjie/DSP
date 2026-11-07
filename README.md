@@ -27,17 +27,19 @@ Bachelor’s research project comparing selected pretrained vision-language back
 
 ## Current status
 
-**2026-10-30 update:** all three fresh-backbone evaluations are complete. The app now defaults to the validation-leading L/14 interaction LR. Its numeric route matched all 1,001 VERITE predictions, and six raw-image checks passed. See [final comparison](reports/backbone_evaluation/RESULTS.md).
+**2026-11-08 update:** the default app now returns one screening result using the existing L/14 classifier OR its existing low-similarity baseline. No retraining or threshold changes. This catches more misleading pairs but adds false alarms. See [unified screening evaluation](reports/unified_screening/README.md). Legacy B/32 choices are unchanged.
+
+**Historical 2026-10-30 update:** all three fresh-backbone evaluations are complete. The app now defaults to the validation-leading L/14 interaction LR. Its numeric route matched all 1,001 VERITE predictions, and six raw-image checks passed. See [final comparison](reports/backbone_evaluation/RESULTS.md).
 
 All 71,966 required images were downloaded and verified. Three fresh-feature extraction/training runs, frozen NewsCLIPpings test evaluation and VERITE evaluation are complete. The current four-objective plan is in [OBJECTIVES_AND_PLAN.md](docs/OBJECTIVES_AND_PLAN.md).
 
-Thirty-one automated tests passed at the latest recorded pipeline check. Laptop/GPU performance is untested. The table below contains completed fresh-feature follow-up results. Historical cached-feature results remain in their original reports.
+Thirty-two automated tests passed at the latest recorded pipeline check. Laptop/GPU performance is untested. The table below contains completed fresh-feature follow-up results. Historical cached-feature results remain in their original reports.
 
 | Backbone + interaction LR | NewsCLIPpings test macro-F1 | VERITE true-vs-OOC macro-F1 | VERITE all-misleading macro-F1 |
 | --- | ---: | ---: | ---: |
 | Fresh CLIP B/32 | 69.67% | 67.65% | 52.77% |
 | CLIP B/16 | 78.21% | 69.00% | 53.19% |
-| CLIP L/14 (app default) | 83.62% | 73.88% | 53.77% |
+| CLIP L/14 (classifier alone) | 83.62% | 73.88% | 53.77% |
 
 These tasks differ in data distribution and construction. Read the full reports for recall, false alarms, confidence intervals and the weaker all-misleading VERITE results. Both core test sets are now evaluated: do not tune on them and later describe them as untouched. Model weights, scalers and thresholds remain frozen. 5Pils-OOC is optional and unscored; ARO was an exploratory route that was not adopted.
 

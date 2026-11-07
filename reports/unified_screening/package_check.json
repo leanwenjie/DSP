@@ -1,0 +1,6 @@
+{
+  "packaged_inference_parity": true,
+  "real_model_form_submission": true,
+  "one_review_result": true,
+  "windows_launchers_tested": false
+}

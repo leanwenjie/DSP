@@ -26,12 +26,14 @@ def main():
             image,text=validate_input((ROOT/'data/verite'/rows[i]['image_path']).read_bytes(),rows[i]['caption'])
             started=time.monotonic();r=detector.predict(image,text,name)
             np.testing.assert_allclose(r['score'],expected['score'][i],atol=1e-4,rtol=1e-4)
-            assert r['flagged']==bool(expected['predictions'][i])
+            assert r['classifier_flagged']==bool(expected['predictions'][i])
+            assert r['flagged']==bool(expected['predictions'][i] or expected['baseline'][i])
             cases.append(dict(row=i,total_seconds=time.monotonic()-started,**r))
     report=dict(backbone='ViT-L/14',cached_prediction_checks=len(rows),raw_input_checks=len(cases),cases=cases,
         source_hashes={p:digest(ROOT/p) for p in ['scripts/app_inference.py','app.py','artifacts/backbones/ViT-L-14/best_model.npz']},
         timing_note='Small six-case CPU sample; first total includes encoder loading. Analysis seconds exclude loading. Not laptop measurements.')
-    (ROOT/'reports/app/l14_integration.json').write_text(json.dumps(report,indent=2)+'\n')
+    out=ROOT/'reports/unified_screening';out.mkdir(exist_ok=True)
+    (out/'l14_integration.json').write_text(json.dumps(report,indent=2)+'\n')
     print('Passed: 1001 numeric predictions and six real-image app predictions.',flush=True)
 
 

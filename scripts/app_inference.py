@@ -61,6 +61,9 @@ class Detector:
         try:
             self.hashes = json.loads(manifest.read_text())['sha256']
             self.hashes.update(json.loads((ROOT/'reports/backbone_evaluation/frozen_manifest.json').read_text())['sha256'])
+            metrics_path = ROOT/'reports/backbone_comparison/ViT-L-14/metrics.json'
+            self.verify(metrics_path)
+            self.cosine_threshold = float(json.loads(metrics_path.read_text())['similarity']['threshold'])
             for path in self.paths.values():
                 self.verify(path)
         except (OSError, KeyError) as exc:
@@ -107,6 +110,15 @@ class Detector:
                 if not np.isfinite(a).all() or np.any(norm==0):
                     raise RuntimeError('The encoder returned invalid features.')
                 vectors.append(a/norm)
-            score, threshold, flagged, score_type, direction = self.classify_vectors(vectors, model_name)
-        return dict(model=model_name, flagged=flagged, score=score, threshold=threshold,
-                    score_type=score_type, flag_when=direction, seconds=time.perf_counter()-started)
+            result = self.screen_vectors(vectors, model_name)
+        return dict(**result, seconds=time.perf_counter()-started)
+
+    def screen_vectors(self, vectors, model_name):
+        """One screening decision; retain the historical classifier for research parity."""
+        score, threshold, flagged, score_type, direction = self.classify_vectors(vectors, model_name)
+        cosine = float(np.einsum('ij,ij->i', *vectors, dtype=np.float64)[0])
+        unified = model_name == MODELS[0]
+        return dict(model=model_name, flagged=bool(flagged or (unified and cosine < self.cosine_threshold)),
+                    classifier_flagged=bool(flagged), score=score, threshold=threshold,
+                    score_type=score_type, flag_when=direction, cosine=cosine,
+                    cosine_threshold=self.cosine_threshold if unified else None, unified=unified)

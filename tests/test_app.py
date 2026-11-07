@@ -5,7 +5,8 @@ from pathlib import Path
 from unittest.mock import patch
 from PIL import Image
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from app_inference import validate_input
+from app_inference import validate_input, Detector, MODELS
+import numpy as np
 from streamlit.testing.v1 import AppTest
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -40,7 +41,7 @@ class InterfaceTests(unittest.TestCase):
         self.assertEqual(at.error[0].value,'Upload an image first.')
     def test_valid_submission_and_failure_messages(self):
         for flagged in (False,True):
-            result=dict(flagged=flagged,score=.2,seconds=.1,model='Logistic regression',score_type='decision score',flag_when='above',threshold=.1)
+            result=dict(flagged=flagged,score=.2,seconds=.1,model='Logistic regression',score_type='decision score',flag_when='above',threshold=.1,unified=False)
             with patch('streamlit.file_uploader',return_value=io.BytesIO(png())),patch('app_inference.Detector') as detector:
                 detector.return_value.predict.return_value=result
                 import streamlit as st
@@ -57,3 +58,24 @@ class InterfaceTests(unittest.TestCase):
             at.text_area[0].set_value('A white image.');at.button[0].click().run()
             self.assertIn('Inference is unavailable',at.error[0].value)
             self.assertEqual(len(at.exception),0)
+
+    def test_unified_rule_disagreement_and_threshold_boundary(self):
+        detector=Detector.__new__(Detector)
+        detector.cosine_threshold=.25
+        for classifier_flag,cosine,expected in [(False,.1,True),(True,.5,True),(False,.5,False),(False,.25,False)]:
+            vectors=[np.array([[1.,0.]]),np.array([[cosine,(1-cosine**2)**.5]])]
+            with patch.object(detector,'classify_vectors',return_value=(0.,.1,classifier_flag,'decision score','above')):
+                result=detector.screen_vectors(vectors,MODELS[0])
+                self.assertEqual(result['flagged'],expected)
+                self.assertEqual(result['classifier_flagged'],classifier_flag)
+                self.assertEqual(detector.screen_vectors(vectors,'Logistic regression')['flagged'],classifier_flag)
+                result['seconds']=.1
+                import streamlit as st
+                st.cache_resource.clear()
+                with patch('streamlit.file_uploader',return_value=io.BytesIO(png())),patch('app_inference.Detector') as mocked:
+                    mocked.return_value.predict.return_value=result
+                    at=AppTest.from_file(str(ROOT/'app.py'),default_timeout=30).run()
+                    at.text_area[0].set_value('An example caption.');at.button[0].click().run()
+                    self.assertEqual(len(at.exception),0)
+                    messages=[x.value for x in (at.warning if expected else at.info)]
+                    self.assertTrue(any(('Flagged for review' if expected else 'No mismatch flagged') in x for x in messages))
