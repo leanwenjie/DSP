@@ -2,7 +2,7 @@ path,bytes,role,purpose
 .gitattributes,166,source/documentation,Git whitespace rules for valid existing CRLF CSV/license files.
 .gitignore,122,source/documentation,"Keeps environments, data, trained artifacts, secrets and caches out of source commits."
 .streamlit/config.toml,114,source/documentation,"App theme, 10 MB upload limit, headless mode and disabled usage telemetry."
-README.md,8172,source/documentation,"Current project entry point, state, results, run command and remaining work."
+README.md,37754,source/documentation,"Comprehensive project and AI-agent handoff: current state, setup, transfer, code, results, limitations and proposed next steps."
 app.py,4568,source/documentation,Streamlit demonstration of frozen CLIP-based misinformation screening.
 artifacts/backbone_evaluation/ViT-B-16_newsclippings_predictions.npz,350170,local model/artifact,Saved numeric model parameters or predictions; retained research artifact.
 artifacts/backbone_evaluation/ViT-B-16_verite_predictions.npz,49546,local model/artifact,Saved numeric model parameters or predictions; retained research artifact.
