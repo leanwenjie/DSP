@@ -1,0 +1,77 @@
+# Unified screening update — 2026-11-08
+
+The default L/14 option returns **one** review/no-flag decision. It flags when the unchanged classifier flags OR same-backbone CLIP cosine similarity is below the existing validation threshold, 0.2376762482060819. No new encoder, retraining or threshold fitting. This includes low visual–textual compatibility within potential-misinformation screening; it does not prove factual error. Legacy B/32 options retain their original rules.
+
+See [follow-up evaluation](../unified_screening/README.md) for the recall/false-alarm trade-off and reproducible checks. Historical classifier-only performance below does not describe the new unified decision. The UI reports one result and retains technical rule details in the explanation expander. Scores are not calibrated probabilities; jokes, indirect captions and unfamiliar images can trigger false alarms.
+
+Additional required file: `reports/backbone_comparison/ViT-L-14/metrics.json`, hash-verified against the frozen manifest. The updated app ZIP includes it. Test with `.venv/bin/python scripts/evaluate_unified_screening.py` or the current `scripts/check_l14_app.py`; neither overwrites historical benchmark reports.
+
+---
+
+# Latest app update — 2026-10-30
+
+Default: **CLIP L/14 + logistic regression**, using the frozen validation-selected interaction head. Legacy B/32 options remain available. One encoder is retained at a time; switching backbones loads the selected encoder. Standard CPU inference only; laptop/GPU measurements remain unverified. The first L/14 use downloads its official ~890 MiB checkpoint, checksum-verified by OpenAI CLIP.
+
+31 automated tests passed. All 1,001 numeric VERITE predictions and six raw-image predictions matched frozen L/14 evaluation outputs. See `l14_integration.json` for evidence. Reported analysis time excludes model loading, upload/input validation and waiting for the inference lock. Long captions are rejected by the app, while benchmark VERITE evaluation permits documented truncation.
+
+The rebuilt Windows ZIP includes the new small classifier and frozen manifest, not the encoder checkpoint or datasets. Its internal checksum manifest passed verification. Windows launchers still need actual Windows validation. Raw examples are not bundled.
+
+L/14: NewsCLIPpings macro-F1 83.62%; VERITE true-vs-OOC macro-F1 73.88%, OOC recall 55.69%; all-misleading macro-F1 53.77%. Scores are not calibrated factual probabilities. Historical B/32 checks and timings below do not describe the new default.
+
+---
+
+# Image and Caption Review app
+
+The local Streamlit app accepts a still JPEG, PNG or WebP image and a caption, then runs a frozen CLIP-based classifier. Logistic regression is the default; similarity and the predesignated seed-42 MLP are available for comparison. Models and thresholds are unchanged from the recorded benchmark evaluations.
+
+## Run
+
+From the project directory, using the prepared CPU environment:
+
+```bash
+.venv/bin/python -m pip install -r requirements-app.txt
+.venv/bin/python -m streamlit run app.py --server.address 127.0.0.1 --server.port 8501
+```
+
+For a new CPU environment, create `.venv` and install torch 2.7.1 and torchvision 0.22.1 from the official CPU index first, as documented in `reports/encoder/README.md`. On Windows use the corresponding `.venv\Scripts\python.exe` executable. Windows and RTX 4050 execution have not been tested here. The app currently uses CPU intentionally to match the verified inference path.
+
+Required retained files: `artifacts/logistic/best_model.npz`, `artifacts/mlp/model_seed42.npz`, `reports/baseline/metrics.json`, and `reports/newsclippings_test/frozen_manifest.json`. The official CLIP checkpoint is cached under `artifacts/clip/ViT-B-32.pt`; CLIP downloads and verifies it if absent. Numeric artifacts are ignored by Git, so a source-only checkout is not sufficient. Restore the evaluated artifacts from the prepared workspace; do not retrain silently to replace them. The app checks their frozen hashes before inference. Original benchmark images are not required to assess a new upload.
+
+## Functionality
+
+- Upload an image and enter a caption; choose one of three evaluated models.
+- Show the submitted image/caption and either “Flagged for review” or “No mismatch flagged.” Neither is a factual verdict.
+- Show the model score, fixed threshold and measured inference time. Scores are not calibrated probabilities.
+- Reject missing/corrupt files, unsupported formats, animated images, uploads over 10 MB and images over 20 megapixels.
+- Reject captions exceeding CLIP's 75 text-token budget rather than silently truncating them. Character count is not token count.
+- Report missing/changed model files or runtime failures without exposing a traceback in the interface.
+- Process uploads in server memory without application-level disk saving or external prediction API calls. Streamlit runs on the host machine; users must trust that host. No dataset images are bundled into the interface.
+
+## Verification
+
+```bash
+.venv/bin/python -m unittest discover -s tests -q
+.venv/bin/python scripts/check_app.py
+.venv/bin/python -m pip check
+```
+
+Twenty-six automated tests passed, including invalid-input cases, animation/size/token limits, interface submission, both result states and runtime-error handling. Interface unit tests use a controlled detector; a separate Streamlit AppTest submission exercised the real CLIP and logistic model with an image and caption. The real server returned successful local health and page responses. This is functional verification, not a manual browser usability study.
+
+`check_app.py` checks 36 cached-vector model outputs and 15 raw-input predictions against the frozen VERITE outputs. Twelve predetermined examples supply a small warmed-up CPU timing sample. It also records correct and incorrect cases without using them to tune anything. See `smoke_and_latency.json` for measurements and limitations. These checks do not constitute a new accuracy estimate. Initialisation, upload and validation are excluded from warm latency; concurrency, browser-to-server latency and laptop GPU performance remain unmeasured.
+
+## Demonstration sequence
+
+1. Start the app and explain that it screens image-caption pairings rather than establishing factual truth.
+2. Upload an image and submit a short caption with logistic regression.
+3. Explain the result and the fixed threshold; do not call the score a percentage confidence.
+4. Repeat with another model to illustrate different decision rules; do not choose whichever output agrees with a desired answer.
+5. Show a missing input or excessively long caption to demonstrate validation.
+6. Discuss one correct and one incorrect benchmark case from the local smoke report. Label these as selected illustrations, not representative accuracy evidence; use the complete benchmark reports for performance claims.
+
+## Remaining limitations
+
+There is no evidence retrieval or independent verification of date, location, identity or event. Negative results can miss misinformation. Exact image-feature parity with the original NewsCLIPpings pipeline remains unverified. The app is a local research demonstration; public hosting, authentication, load testing, score calibration, browser usability testing and the user's laptop benchmark have not been completed.
+
+Measured in this cloud CPU run: initialisation 1.84 s; warm median 0.109 s and p95 0.133 s over 12 single-request logistic-regression inputs. These are exploratory measurements, not performance guarantees.
+
+Inference simplification: shared numeric heads now live in `scripts/model_inference.py`. The app no longer imports training scripts; the laptop ZIP omits train_logistic.py, train_mlp.py and similarity_baseline.py. All 32,100 saved learned-model predictions checked across validation and VERITE are unchanged; 27 tests pass. The extracted bundle also passes real-image checks for all three app models. Frozen hashes and input validation remain intact.

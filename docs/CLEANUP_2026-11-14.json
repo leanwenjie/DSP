@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-14",
+  "archived": [
+    {
+      "path": "docs/PROJECT_REPORT.md",
+      "bytes": 26449,
+      "sha256": "c5926c6135bc51d46e325bf385e23684f21032a946e7fcf84167c686fb22ca8e"
+    },
+    {
+      "path": "docs/PRESENTATION.md",
+      "bytes": 5722,
+      "sha256": "a09ef834851f019ab5a2e961696f28456221eb6b028b561c62a13a5aee0ba3c1"
+    },
+    {
+      "path": "requirements-deliverables.txt",
+      "bytes": 81,
+      "sha256": "c74665e0d9d6127b2995c920f8e8a4474fa52d42782ea6bd213a6511bbbc5c60"
+    },
+    {
+      "path": "scripts/build_submission.py",
+      "bytes": 38361,
+      "sha256": "2ea301f422b535570932f9e159e839cb2db59529c169e5867822806a490e810e"
+    },
+    {
+      "path": "outputs/submission/BUILD_PROVENANCE.json",
+      "bytes": 612,
+      "sha256": "5817c3c2061dc953f29e4e80e3ea9ff1b72feb5b9631d1318270355b670ab9fa"
+    },
+    {
+      "path": "outputs/submission/PRESENTATION.pptx",
+      "bytes": 388349,
+      "sha256": "e92df158fcc189737096964bbcc514cb3bfd25396f0014ff3fb40f15d5be7257"
+    },
+    {
+      "path": "outputs/submission/PROJECT_REPORT.docx",
+      "bytes": 530520,
+      "sha256": "1f92a3fbb59b8aadadf488934e5c89461962ff867049066e506b771e761d4148"
+    },
+    {
+      "path": "outputs/submission/PROJECT_REPORT.html",
+      "bytes": 758632,
+      "sha256": "1b69cea96eb9ca3b29faaf8f84d21e93d17258f7f31fb42a765fad4a9d00ad87"
+    }
+  ],
+  "removed": [
+    {
+      "path": "artifacts/playwright",
+      "bytes": 962395941,
+      "file_count": 486,
+      "reason": "Regenerable browser downloads or cache; not used for model inference"
+    },
+    {
+      "path": "artifacts/matplotlib",
+      "bytes": 173564,
+      "file_count": 1,
+      "reason": "Regenerable browser downloads or cache; not used for model inference"
+    },
+    {
+      "path": "scripts/__pycache__",
+      "bytes": 147712,
+      "file_count": 13,
+      "reason": "Regenerable browser downloads or cache; not used for model inference"
+    },
+    {
+      "path": "tests/__pycache__",
+      "bytes": 47119,
+      "file_count": 11,
+      "reason": "Regenerable browser downloads or cache; not used for model inference"
+    }
+  ],
+  "archive": {
+    "path": "exports/paused-deliverables-2026-11-14.zip",
+    "sha256": "3ac0776af6ed7301707bd12165406ef37ca58dc0f4b3cd6213046e7db16f474f",
+    "bytes": 1462274,
+    "verified_before_originals_removed": true
+  },
+  "removed_bytes": 962764336,
+  "validation": {
+    "automated_tests_passed": 32,
+    "frozen_inputs_unchanged": 43,
+    "detector_initialisation": "passed",
+    "pip_check": "passed",
+    "application_code_changed": false,
+    "datasets_models_predictions_deleted": false
+  }
+}

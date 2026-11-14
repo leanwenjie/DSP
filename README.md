@@ -4,6 +4,8 @@ Bachelor’s research project comparing selected pretrained vision-language back
 
 ## Start here
 
+Cleanup on 2026-11-14 removed regenerable caches and archived paused deliverables locally. See [current file guide](docs/FILE_GUIDE.md) and [cleanup record](docs/CLEANUP_2026-11-14.json). Models, datasets and experiment outputs are preserved.
+
 - [Frozen three-backbone test/external evaluation](reports/backbone_evaluation/README.md)
 
 - [Three-backbone CPU feasibility results](reports/backbone_comparison/README.md)
